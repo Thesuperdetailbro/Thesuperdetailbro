@@ -63,105 +63,6 @@ opacity:.95;
 .cloud7{top:1800px;left:22%;}
 .cloud8{top:2150px;right:8%;}
 
-/* MINI MARIO BACKGROUND */
-.mini-mario{
-position:absolute;
-right:7%;
-top:520px;
-width:64px;
-height:96px;
-opacity:.28;
-transform:scale(1.2);
-}
-
-.mario-hat{
-position:absolute;
-top:0;
-left:10px;
-width:44px;
-height:16px;
-background:#d8281c;
-box-shadow:
-0 16px 0 #d8281c,
--8px 8px 0 #d8281c,
-44px 8px 0 #d8281c;
-}
-
-.mario-face{
-position:absolute;
-top:24px;
-left:18px;
-width:28px;
-height:24px;
-background:#f2c29b;
-box-shadow:
-0 24px 0 #f2c29b;
-}
-
-.mario-hair{
-position:absolute;
-top:24px;
-left:10px;
-width:8px;
-height:24px;
-background:#5a2b12;
-box-shadow:
-36px 0 0 #5a2b12,
-0 24px 0 #5a2b12,
-36px 24px 0 #5a2b12;
-}
-
-.mario-mustache{
-position:absolute;
-top:40px;
-left:18px;
-width:28px;
-height:8px;
-background:#5a2b12;
-}
-
-.mario-shirt{
-position:absolute;
-top:56px;
-left:16px;
-width:32px;
-height:16px;
-background:#d8281c;
-}
-
-.mario-overalls{
-position:absolute;
-top:72px;
-left:12px;
-width:40px;
-height:16px;
-background:#1f57d6;
-}
-
-.mario-leg1,
-.mario-leg2{
-position:absolute;
-top:88px;
-width:12px;
-height:8px;
-background:#5a2b12;
-}
-
-.mario-leg1{left:14px;}
-.mario-leg2{left:38px;}
-
-.mario-arm1,
-.mario-arm2{
-position:absolute;
-top:60px;
-width:8px;
-height:20px;
-background:#f2c29b;
-}
-
-.mario-arm1{left:6px;}
-.mario-arm2{right:6px;}
-
 /* HEADER */
 header{
 background:#e52521;
@@ -200,8 +101,8 @@ color:#ffdc5e;
 /* HERO */
 .hero{
 position:relative;
-min-height:420px;
-padding:100px 20px 80px;
+min-height:360px;
+padding:100px 20px 70px;
 background:transparent;
 }
 
@@ -253,6 +154,8 @@ box-shadow:0 3px 0 #c19100;
 .section{
 padding:72px 20px;
 background:transparent;
+position:relative;
+z-index:1;
 }
 
 .section h2{
@@ -363,6 +266,77 @@ color:#ffdd57;
 text-shadow:2px 2px 0 #000;
 }
 
+.discount-message{
+display:block;
+margin-top:12px;
+font-size:12px;
+text-shadow:2px 2px 0 #000;
+}
+
+.common{color:#ffffff;}
+.uncommon{color:#62ff71;}
+.rare{color:#ff6b6b;}
+.epic{color:#c06cff;}
+.legendary{color:#ffd700;}
+
+/* LEGENDARY POPUP */
+.legendary-popup{
+position:fixed;
+inset:0;
+display:none;
+align-items:center;
+justify-content:center;
+background:rgba(0,0,0,.55);
+z-index:3000;
+}
+
+.legendary-popup.show{
+display:flex;
+}
+
+.legendary-box{
+background:#1f1f1f;
+border:4px solid #000;
+border-radius:16px;
+padding:28px 20px;
+max-width:420px;
+width:90%;
+box-shadow:0 10px 0 rgba(0,0,0,.35);
+}
+
+.legendary-big-coin{
+width:90px;
+height:90px;
+margin:0 auto 18px;
+border-radius:50%;
+background:gold;
+box-shadow:0 0 0 8px #f1ba00 inset;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:34px;
+color:#9a6b00;
+animation:coinPulse .6s infinite alternate;
+}
+
+@keyframes coinPulse{
+from{transform:scale(1);}
+to{transform:scale(1.1);}
+}
+
+.legendary-box h3{
+margin:0 0 12px;
+font-size:16px;
+color:#ffd700;
+text-shadow:2px 2px 0 #000;
+}
+
+.legendary-box p{
+font-size:10px;
+line-height:1.9;
+margin:0 0 16px;
+}
+
 /* GALLERY */
 .slider{
 max-width:760px;
@@ -405,6 +379,10 @@ box-shadow:0 4px 0 #c19100;
 .right{right:10px;}
 
 /* BOOKING */
+.booking-section{
+padding-bottom:0;
+}
+
 .booking-form{
 max-width:700px;
 margin:auto;
@@ -412,6 +390,8 @@ display:flex;
 flex-direction:column;
 gap:14px;
 padding:28px 20px;
+position:relative;
+z-index:3;
 }
 
 .booking-form input,
@@ -424,6 +404,272 @@ border-radius:8px;
 font-family:'Press Start 2P',cursive;
 font-size:10px;
 }
+
+/* BOOKING MARIO WORLD */
+.booking-world{
+position:relative;
+max-width:1100px;
+height:230px;
+margin:30px auto 0;
+overflow:hidden;
+}
+
+.booking-ground{
+position:absolute;
+left:0;
+right:0;
+bottom:0;
+height:74px;
+background:
+repeating-linear-gradient(
+to right,
+#c96a2b 0 32px,
+#b85b1d 32px 64px
+);
+border-top:4px solid #000;
+z-index:1;
+}
+
+.booking-ground::before{
+content:"";
+position:absolute;
+inset:0;
+background:
+repeating-linear-gradient(
+to right,
+transparent 0 28px,
+#000 28px 32px,
+transparent 32px 64px
+),
+repeating-linear-gradient(
+to bottom,
+transparent 0 26px,
+#000 26px 30px,
+transparent 30px 64px
+);
+}
+
+.pipe{
+position:absolute;
+bottom:74px;
+width:80px;
+height:95px;
+background:#16b72a;
+border:4px solid #000;
+z-index:2;
+}
+
+.pipe::before{
+content:"";
+position:absolute;
+left:-8px;
+right:-8px;
+top:-20px;
+height:22px;
+background:#1fd633;
+border:4px solid #000;
+}
+
+.pipe1{left:8%;}
+.pipe2{right:14%;height:120px;}
+
+.brick{
+position:absolute;
+width:52px;
+height:52px;
+background:
+repeating-linear-gradient(
+to bottom,
+#b85a22 0 12px,
+#8b3f16 12px 16px
+);
+border:4px solid #000;
+z-index:3;
+}
+
+.brick::before{
+content:"";
+position:absolute;
+inset:0;
+background:
+linear-gradient(to right, transparent 0 22px, #000 22px 26px, transparent 26px 100%),
+linear-gradient(to right, transparent 0 48px, #000 48px 52px, transparent 52px 100%);
+opacity:.9;
+}
+
+.brick1{left:32%;bottom:150px;}
+.brick2{left:37%;bottom:150px;}
+.brick3{left:42%;bottom:150px;}
+
+.question{
+position:absolute;
+width:52px;
+height:52px;
+background:#e89a34;
+border:4px solid #000;
+box-shadow:inset -4px -4px 0 #c46d16,inset 4px 4px 0 #f8bf62;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+color:#000;
+text-shadow:2px 2px 0 #f8bf62;
+z-index:3;
+}
+
+.question1{left:52%;bottom:150px;}
+.question2{left:57%;bottom:150px;}
+
+.goomba{
+position:absolute;
+bottom:74px;
+width:42px;
+height:34px;
+background:#b86124;
+border:4px solid #000;
+border-bottom:none;
+border-radius:20px 20px 10px 10px;
+z-index:3;
+}
+
+.goomba::before,
+.goomba::after{
+content:"";
+position:absolute;
+top:12px;
+width:6px;
+height:10px;
+background:#000;
+}
+
+.goomba::before{left:10px;}
+.goomba::after{right:10px;}
+
+.goomba-feet{
+position:absolute;
+width:42px;
+height:12px;
+bottom:62px;
+z-index:3;
+}
+
+.goomba-feet::before,
+.goomba-feet::after{
+content:"";
+position:absolute;
+bottom:0;
+width:14px;
+height:10px;
+background:#f0c3a0;
+border:4px solid #000;
+border-top:none;
+}
+
+.goomba-feet::before{left:3px;}
+.goomba-feet::after{right:3px;}
+
+.goomba1{left:22%;}
+.goomba1-feet{left:22%;}
+
+.goomba2{right:28%;}
+.goomba2-feet{right:28%;}
+
+/* MINI MARIO AT BOTTOM */
+.bottom-mario{
+position:absolute;
+left:64%;
+bottom:74px;
+width:64px;
+height:96px;
+z-index:4;
+}
+
+.bottom-mario .mario-hat{
+position:absolute;
+top:0;
+left:10px;
+width:44px;
+height:16px;
+background:#d8281c;
+box-shadow:
+0 16px 0 #d8281c,
+-8px 8px 0 #d8281c,
+44px 8px 0 #d8281c;
+}
+
+.bottom-mario .mario-face{
+position:absolute;
+top:24px;
+left:18px;
+width:28px;
+height:24px;
+background:#f2c29b;
+box-shadow:0 24px 0 #f2c29b;
+}
+
+.bottom-mario .mario-hair{
+position:absolute;
+top:24px;
+left:10px;
+width:8px;
+height:24px;
+background:#5a2b12;
+box-shadow:
+36px 0 0 #5a2b12,
+0 24px 0 #5a2b12,
+36px 24px 0 #5a2b12;
+}
+
+.bottom-mario .mario-mustache{
+position:absolute;
+top:40px;
+left:18px;
+width:28px;
+height:8px;
+background:#5a2b12;
+}
+
+.bottom-mario .mario-shirt{
+position:absolute;
+top:56px;
+left:16px;
+width:32px;
+height:16px;
+background:#d8281c;
+}
+
+.bottom-mario .mario-overalls{
+position:absolute;
+top:72px;
+left:12px;
+width:40px;
+height:16px;
+background:#1f57d6;
+}
+
+.bottom-mario .mario-leg1,
+.bottom-mario .mario-leg2{
+position:absolute;
+top:88px;
+width:12px;
+height:8px;
+background:#5a2b12;
+}
+
+.bottom-mario .mario-leg1{left:14px;}
+.bottom-mario .mario-leg2{left:38px;}
+
+.bottom-mario .mario-arm1,
+.bottom-mario .mario-arm2{
+position:absolute;
+top:60px;
+width:8px;
+height:20px;
+background:#f2c29b;
+}
+
+.bottom-mario .mario-arm1{left:6px;}
+.bottom-mario .mario-arm2{right:6px;}
 
 /* REVIEWS */
 .review-grid{
@@ -472,7 +718,7 @@ border-top:6px solid #b81412;
 font-size:9px;
 line-height:2;
 text-shadow:2px 2px 0 #000;
-margin-top:40px;
+margin-top:20px;
 }
 
 /* MOBILE */
@@ -486,8 +732,8 @@ font-size:8px;
 }
 
 .hero{
-min-height:360px;
-padding:80px 16px 60px;
+min-height:320px;
+padding:80px 16px 50px;
 }
 
 .hero h2{
@@ -512,10 +758,24 @@ height:250px;
 display:none;
 }
 
-.mini-mario{
-right:4%;
-top:700px;
-transform:scale(.9);
+.booking-world{
+height:190px;
+}
+
+.pipe2,
+.goomba2,
+.goomba2-feet{
+display:none;
+}
+
+.bottom-mario{
+left:auto;
+right:8%;
+transform:scale(.85);
+}
+
+.brick1,.brick2,.brick3,.question1,.question2{
+transform:scale(.85);
 }
 }
 </style>
@@ -531,19 +791,15 @@ transform:scale(.9);
 <div class="cloud cloud6"></div>
 <div class="cloud cloud7"></div>
 <div class="cloud cloud8"></div>
-
-<div class="mini-mario">
-<div class="mario-hat"></div>
-<div class="mario-face"></div>
-<div class="mario-hair"></div>
-<div class="mario-mustache"></div>
-<div class="mario-shirt"></div>
-<div class="mario-overalls"></div>
-<div class="mario-arm1"></div>
-<div class="mario-arm2"></div>
-<div class="mario-leg1"></div>
-<div class="mario-leg2"></div>
 </div>
+
+<div class="legendary-popup" id="legendaryPopup">
+  <div class="legendary-box">
+    <div class="legendary-big-coin">$</div>
+    <h3>LEGENDARY COIN!</h3>
+    <p>You unlocked a $40 discount!</p>
+    <button class="mario-btn" onclick="closeLegendary()">AWESOME</button>
+  </div>
 </div>
 
 <header>
@@ -583,7 +839,7 @@ transform:scale(.9);
 </div>
 <div class="card">
 <h3>PREMIUM PACKAGE</h3>
-<p>Steam cleaning and pet hair removal for extra tough jobs.</p>
+<p>Steam cleaning is included, plus tough pet hair and deeper restoration.</p>
 </div>
 </div>
 </section>
@@ -592,15 +848,15 @@ transform:scale(.9);
 <h2>DETAIL PRICE ESTIMATOR</h2>
 <div class="estimator panel">
 <select id="vehicle">
-<option value="130">Small Car ($130)</option>
-<option value="150">Sedan ($150)</option>
-<option value="165">Truck / SUV ($165)</option>
+<option value="140">Small Vehicle ($140)</option>
+<option value="160">Medium Vehicle ($160)</option>
+<option value="175">Large Vehicle ($175)</option>
 </select>
 
 <select id="service">
 <option value="1">Full Detail</option>
-<option value="0.5">Interior Only</option>
-<option value="0.5">Exterior Only</option>
+<option value="0.6">Interior Only</option>
+<option value="0.6">Exterior Only</option>
 </select>
 
 <select id="pet">
@@ -610,8 +866,8 @@ transform:scale(.9);
 <option value="40">Heavy Pet Hair (+$40)</option>
 </select>
 
-<label><input type="checkbox" id="steam"> Steam Cleaning (+$15)</label>
-<label><input type="checkbox" id="fresh"> Air Freshener (+$10)</label>
+<label><input type="checkbox" id="decon"> Paint Decontamination (+$40)</label>
+<label><input type="checkbox" id="sio2"> SiO2 Spray Sealant (+$30)</label>
 
 <button class="mario-btn" onclick="estimateReward()">CALCULATE PRICE</button>
 
@@ -635,7 +891,7 @@ transform:scale(.9);
 </div>
 </section>
 
-<section id="booking" class="section">
+<section id="booking" class="section booking-section">
 <h2>MAKE APPOINTMENT</h2>
 <form class="booking-form panel" action="https://formsubmit.co/thesuperdetailbro@gmail.com" method="POST">
 <input type="text" name="Name" placeholder="Name" required>
@@ -656,6 +912,39 @@ transform:scale(.9);
 
 <button type="submit" class="mario-btn" onclick="playCoin()">SUBMIT APPOINTMENT</button>
 </form>
+
+<div class="booking-world">
+  <div class="brick brick1"></div>
+  <div class="brick brick2"></div>
+  <div class="brick brick3"></div>
+
+  <div class="question question1">?</div>
+  <div class="question question2">?</div>
+
+  <div class="pipe pipe1"></div>
+  <div class="pipe pipe2"></div>
+
+  <div class="goomba goomba1"></div>
+  <div class="goomba-feet goomba1-feet"></div>
+
+  <div class="goomba goomba2"></div>
+  <div class="goomba-feet goomba2-feet"></div>
+
+  <div class="bottom-mario">
+    <div class="mario-hat"></div>
+    <div class="mario-face"></div>
+    <div class="mario-hair"></div>
+    <div class="mario-mustache"></div>
+    <div class="mario-shirt"></div>
+    <div class="mario-overalls"></div>
+    <div class="mario-arm1"></div>
+    <div class="mario-arm2"></div>
+    <div class="mario-leg1"></div>
+    <div class="mario-leg2"></div>
+  </div>
+
+  <div class="booking-ground"></div>
+</div>
 </section>
 
 <section id="reviews" class="section">
@@ -702,18 +991,64 @@ playing = false;
 };
 }
 
+function showDiscountMessage(message, rarityClass, total){
+document.getElementById("price").innerHTML =
+'Estimated Price: $' + total +
+'<span class="discount-message ' + rarityClass + '">' + message + '</span>';
+
+document.getElementById("rewardBox").classList.add("show");
+}
+
 function estimateReward(){
 let vehicle = parseFloat(document.getElementById("vehicle").value);
 let service = parseFloat(document.getElementById("service").value);
 let pet = parseFloat(document.getElementById("pet").value);
-let steam = document.getElementById("steam").checked ? 15 : 0;
-let fresh = document.getElementById("fresh").checked ? 10 : 0;
+let decon = document.getElementById("decon").checked ? 40 : 0;
+let sio2 = document.getElementById("sio2").checked ? 30 : 0;
 
-let total = (vehicle * service) + pet + steam + fresh;
+let subtotal = (vehicle * service) + pet + decon + sio2;
 
-document.getElementById("price").innerHTML = "Estimated Price: $" + total;
-document.getElementById("rewardBox").classList.add("show");
+let random = Math.random();
+let discount = 0;
+let message = "";
+let rarityClass = "common";
+
+if(random < 0.50){
+  discount = 5;
+  message = "🪙 COMMON COIN! $5 OFF";
+  rarityClass = "common";
+}
+else if(random < 0.75){
+  discount = 10;
+  message = "⭐ UNCOMMON COIN! $10 OFF";
+  rarityClass = "uncommon";
+}
+else if(random < 0.90){
+  discount = 15;
+  message = "🔥 RARE COIN! $15 OFF";
+  rarityClass = "rare";
+}
+else if(random < 0.98){
+  discount = 20;
+  message = "💎 EPIC COIN! $20 OFF";
+  rarityClass = "epic";
+}
+else{
+  discount = 40;
+  message = "👑 LEGENDARY COIN! $40 OFF!!!";
+  rarityClass = "legendary";
+  document.getElementById("legendaryPopup").classList.add("show");
+}
+
+let total = subtotal - discount;
+if(total < 0) total = 0;
+
+showDiscountMessage(message, rarityClass, total);
 playCoin();
+}
+
+function closeLegendary(){
+document.getElementById("legendaryPopup").classList.remove("show");
 }
 
 let currentSlide = 0;

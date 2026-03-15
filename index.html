@@ -1,15 +1,12 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Super Detail Bro</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-
 <style>
-
 body{
 margin:0;
 font-family:'Press Start 2P',cursive;
@@ -20,12 +17,10 @@ overflow-x:hidden;
 }
 
 /* HEADER */
-
 header{
 background:#e52521;
 padding:25px;
 }
-
 nav{
 display:flex;
 justify-content:center;
@@ -33,7 +28,6 @@ gap:25px;
 flex-wrap:wrap;
 margin-top:10px;
 }
-
 nav a{
 color:white;
 text-decoration:none;
@@ -41,14 +35,10 @@ font-size:10px;
 }
 
 /* HERO */
-
 .hero{
 padding:120px 20px;
 position:relative;
 }
-
-/* BUTTON */
-
 .mario-btn{
 background:#ffcc00;
 color:black;
@@ -59,45 +49,57 @@ cursor:pointer;
 font-family:'Press Start 2P',cursive;
 font-size:12px;
 }
-
-.mario-btn:hover{
-transform:scale(1.1);
-}
+.mario-btn:hover{transform:scale(1.1)}
 
 /* COINS */
-
 .coin{
 position:absolute;
-width:35px;
-height:35px;
+width:32px;
+height:32px;
 background:gold;
 border-radius:50%;
-box-shadow:0 0 0 4px #f7c400 inset;
+border:2px solid #f7c400;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:bold;
+color:#a87400;
 animation:coinFloat 4s ease-in-out infinite;
 }
-
-.coin:after{
-content:"$";
-position:absolute;
-color:#a87400;
-font-size:18px;
-left:50%;
-top:50%;
-transform:translate(-50%,-50%);
-}
-
 .coin1{top:230px;left:20%;}
 .coin2{top:260px;left:60%;}
 .coin3{top:210px;left:80%;}
+@keyframes coinFloat{0%{transform:translateY(0)}50%{transform:translateY(-15px)}100%{transform:translateY(0)}}
 
-@keyframes coinFloat{
-0%{transform:translateY(0)}
-50%{transform:translateY(-15px)}
-100%{transform:translateY(0)}
+/* STARS */
+.star{
+position:absolute;
+width:32px;
+height:32px;
+background:yellow;
+clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+animation:starFloat 4s ease-in-out infinite;
 }
+.star1{top:150px; left:15%;}
+.star2{top:180px; left:75%;}
+@keyframes starFloat{0%{transform:translateY(0)}50%{transform:translateY(-15px)}100%{transform:translateY(0)}}
+
+/* BUBBLES */
+.bubble{
+position:absolute;
+width:20px;
+height:20px;
+background:rgba(255,255,255,0.7);
+border-radius:50%;
+border:2px solid white;
+animation:bubbleRise 10s linear infinite;
+}
+.bubble1{left:20%;}
+.bubble2{left:50%;}
+.bubble3{left:75%;}
+@keyframes bubbleRise{0%{transform:translateY(0)}100%{transform:translateY(-120vh)}}
 
 /* CLOUDS */
-
 .cloud{
 position:absolute;
 background:white;
@@ -106,7 +108,6 @@ width:120px;
 height:60px;
 animation:cloudMove 40s linear infinite;
 }
-
 .cloud:before,
 .cloud:after{
 content:"";
@@ -114,239 +115,123 @@ position:absolute;
 background:white;
 border-radius:50%;
 }
-
-.cloud:before{
-width:60px;
-height:60px;
-top:-30px;
-left:10px;
-}
-
-.cloud:after{
-width:80px;
-height:80px;
-top:-40px;
-right:10px;
-}
-
+.cloud:before{width:60px;height:60px;top:-30px;left:10px;}
+.cloud:after{width:80px;height:80px;top:-40px;right:10px;}
 .cloud1{top:60px;left:-150px;}
 .cloud2{top:120px;left:-200px;}
 .cloud3{top:20px;left:-100px;}
-
-@keyframes cloudMove{
-from{transform:translateX(0)}
-to{transform:translateX(140vw)}
-}
-
-/* BUBBLES */
-
-.bubble{
-position:absolute;
-bottom:-50px;
-width:20px;
-height:20px;
-background:rgba(255,255,255,.6);
-border-radius:50%;
-animation:bubbleRise 12s linear infinite;
-}
-
-@keyframes bubbleRise{
-from{transform:translateY(0)}
-to{transform:translateY(-120vh)}
-}
+@keyframes cloudMove{from{transform:translateX(0)}to{transform:translateX(140vw)}}
 
 /* SECTIONS */
-
-.section{
-padding:80px 20px;
-}
-
-/* SERVICES */
-
-.services{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-max-width:1000px;
-margin:auto;
-}
-
-.card{
-background:#2b2b2b;
-padding:30px;
-border-radius:12px;
-}
-
-/* SLIDER */
-
-.slider{
-max-width:700px;
-margin:auto;
-overflow:hidden;
-position:relative;
-}
-
-.slides{
-display:flex;
-transition:transform .5s ease;
-}
-
-.slide{
-width:100%;
-flex-shrink:0;
-border-radius:10px;
-}
-
-.slide-btn{
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-background:#ffcc00;
-border:none;
-font-size:22px;
-padding:12px 16px;
-cursor:pointer;
-}
-
-.left{left:10px;}
-.right{right:10px;}
-
-/* BOOKING */
-
-.booking-form{
-max-width:600px;
-margin:auto;
-display:flex;
-flex-direction:column;
-gap:15px;
-}
-
+.section{padding:80px 20px;}
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;max-width:1000px;margin:auto;}
+.card{background:#2b2b2b;padding:30px;border-radius:12px;}
+.slider{max-width:700px;margin:auto;overflow:hidden;position:relative;}
+.slides{display:flex;transition:transform .5s ease;}
+.slide{width:100%;flex-shrink:0;border-radius:10px;}
+.slide-btn{position:absolute;top:50%;transform:translateY(-50%);background:#ffcc00;border:none;font-size:22px;padding:12px 16px;cursor:pointer;}
+.left{left:10px;} .right{right:10px;}
+.booking-form{max-width:600px;margin:auto;display:flex;flex-direction:column;gap:15px;}
 .booking-form input,
 .booking-form select,
-.booking-form textarea{
-padding:14px;
-border-radius:8px;
-border:none;
-font-family:'Press Start 2P',cursive;
-}
+.booking-form textarea{padding:14px;border-radius:8px;border:none;font-family:'Press Start 2P',cursive;}
+.contact-btn{display:block;background:#ffcc00;color:black;padding:18px;margin:15px auto;width:280px;border-radius:10px;text-decoration:none;font-size:10px;}
+.review{background:#2b2b2b;padding:25px;margin:20px auto;max-width:700px;border-radius:12px;}
+footer{background:#e52521;padding:35px;font-size:9px;margin-top:40px;}
 
-/* CONTACT BUTTONS */
-
-.contact-btn{
-display:block;
-background:#ffcc00;
-color:black;
-padding:18px;
-margin:15px auto;
-width:280px;
-border-radius:10px;
-text-decoration:none;
-font-size:10px;
-}
-
-/* REVIEWS */
-
-.review{
-background:#2b2b2b;
-padding:25px;
-margin:20px auto;
-max-width:700px;
-border-radius:12px;
-}
-
-footer{
-background:#e52521;
-padding:35px;
-font-size:9px;
-margin-top:40px;
-}
+/* ESTIMATOR COIN REWARD */
+.estimator{max-width:600px;margin:auto;}
+.reward{margin-top:30px;opacity:0;transform:scale(.5);transition:all .5s;}
+.reward.show{opacity:1;transform:scale(1);}
+.reward-coin{width:40px;height:40px;background:gold;border-radius:50%;margin:auto;box-shadow:0 0 0 4px #f7c400 inset;animation:spinCoin 1s linear infinite;display:flex;align-items:center;justify-content:center;font-weight:bold;color:#a87400;}
+@keyframes spinCoin{0%{transform:rotateY(0)}100%{transform:rotateY(360deg)}}
 
 </style>
-
 </head>
-
 <body>
 
 <header>
-
 <h1>SUPER DETAIL BRO</h1>
-
 <nav>
 <a href="#services">Services</a>
-<a href="#gallery">Gallery</a>
+<a href="#estimate">Estimator</a>
 <a href="#booking">Book</a>
 <a href="#reviews">Reviews</a>
 <a href="#contact">Contact</a>
 </nav>
-
 </header>
 
 <section class="hero">
-
 <h2>Mobile Auto Detailing</h2>
-
 <p>We come to you and make your ride shine.</p>
-
 <button class="mario-btn" onclick="playCoin();scrollToBooking()">BOOK NOW</button>
 
 <div class="coin coin1"></div>
 <div class="coin coin2"></div>
 <div class="coin coin3"></div>
 
+<div class="star star1"></div>
+<div class="star star2"></div>
+
+<div class="bubble bubble1"></div>
+<div class="bubble bubble2"></div>
+<div class="bubble bubble3"></div>
+
 <div class="cloud cloud1"></div>
 <div class="cloud cloud2"></div>
 <div class="cloud cloud3"></div>
-
-<div class="bubble" style="left:20%"></div>
-<div class="bubble" style="left:40%"></div>
-<div class="bubble" style="left:70%"></div>
-
 </section>
 
 <section id="services" class="section">
-
 <h2>Detailing Services</h2>
-
 <div class="services">
-
-<div class="card">
-<h3>Full Detail</h3>
-<p>Interior + exterior deep clean.</p>
+<div class="card"><h3>Full Detail</h3><p>Interior + exterior deep clean.</p></div>
+<div class="card"><h3>Interior Detail</h3><p>Vacuum, wipe down, carpets cleaned.</p></div>
+<div class="card"><h3>Exterior Detail</h3><p>Foam wash, wheels cleaned, shine.</p></div>
+<div class="card"><h3>Premium Package</h3><p>Steam cleaning + pet hair removal.</p></div>
 </div>
+</section>
 
-<div class="card">
-<h3>Interior Detail</h3>
-<p>Vacuum, wipe down, carpets cleaned.</p>
+<section id="estimate" class="section">
+<h2>Detail Price Estimator</h2>
+<div class="estimator">
+<select id="vehicle">
+<option value="130">Small Car ($130)</option>
+<option value="150">Sedan ($150)</option>
+<option value="165">Truck / SUV ($165)</option>
+</select>
+<br><br>
+<select id="service">
+<option value="1">Full Detail</option>
+<option value="0.5">Interior Only</option>
+<option value="0.5">Exterior Only</option>
+</select>
+<br><br>
+<select id="pet">
+<option value="0">No Pet Hair</option>
+<option value="20">Light Pet Hair (+$20)</option>
+<option value="30">Medium Pet Hair (+$30)</option>
+<option value="40">Heavy Pet Hair (+$40)</option>
+</select>
+<br><br>
+<label><input type="checkbox" id="steam"> Steam Cleaning (+$15)</label>
+<br><br>
+<label><input type="checkbox" id="fresh"> Air Freshener (+$10)</label>
+<br><br>
+<button class="mario-btn" onclick="estimateReward()">CALCULATE PRICE</button>
+<div class="reward">
+<div class="reward-coin">$</div>
+<h3 id="price"></h3>
 </div>
-
-<div class="card">
-<h3>Exterior Detail</h3>
-<p>Foam wash, wheels cleaned, shine.</p>
 </div>
-
-<div class="card">
-<h3>Premium Package</h3>
-<p>Steam cleaning + pet hair removal.</p>
-</div>
-
-</div>
-
 </section>
 
 <section id="booking" class="section">
-
 <h2>Make Appointment</h2>
-
-<form class="booking-form"
-action="https://formsubmit.co/thesuperdetailbro@gmail.com"
-method="POST">
-
+<form class="booking-form" action="https://formsubmit.co/thesuperdetailbro@gmail.com" method="POST">
 <input type="text" name="Name" placeholder="Name" required>
-
 <input type="tel" name="Phone" placeholder="Phone Number" required>
-
 <input type="text" name="Address" placeholder="Address">
-
 <select name="Service">
 <option>Select Service</option>
 <option>Full Detail</option>
@@ -354,69 +239,61 @@ method="POST">
 <option>Exterior Detail</option>
 <option>Premium Package</option>
 </select>
-
 <input type="date" name="Appointment Date">
-
 <textarea name="Vehicle Notes" placeholder="Vehicle & Notes"></textarea>
-
 <input type="hidden" name="_subject" value="New Super Detail Bro Appointment">
 <input type="hidden" name="_captcha" value="false">
-
 <button class="mario-btn" onclick="playCoin()">SUBMIT APPOINTMENT</button>
-
 </form>
+</section>
 
+<section id="reviews" class="section">
+<h2>Customer Reviews</h2>
+<div class="review">⭐⭐⭐⭐⭐ "Car looked brand new after the detail."</div>
+<div class="review">⭐⭐⭐⭐⭐ "Super professional and came to my house."</div>
+<div class="review">⭐⭐⭐⭐⭐ "Best mobile detailing around!"</div>
 </section>
 
 <section id="contact" class="section">
-
 <h2>Contact</h2>
-
 <a class="contact-btn" href="tel:18314020853" onclick="playCoin()">📞 CALL 831-402-0853</a>
-
 <a class="contact-btn" href="mailto:thesuperdetailbro@gmail.com" onclick="playCoin()">✉️ EMAIL</a>
-
 </section>
 
 <footer>
-
 SUPER DETAIL BRO MOBILE DETAILING
-
 <br><br>
-
 📞 831-402-0853  
 <br>
 ✉️ thesuperdetailbro@gmail.com
-
 </footer>
 
 <script>
-
 function scrollToBooking(){
-
-document.getElementById("booking").scrollIntoView({behavior:"smooth"})
-
+document.getElementById("booking").scrollIntoView({behavior:"smooth"});
 }
 
-const coinSound=new Audio("https://www.orangefreesounds.com/wp-content/uploads/2014/08/Mario-coin-sound.mp3")
-
-let playing=false
-
+const coinSound = new Audio("https://www.orangefreesounds.com/wp-content/uploads/2014/08/Mario-coin-sound.mp3");
+let playing = false;
 function playCoin(){
-
-if(playing)return
-
-playing=true
-
-coinSound.currentTime=0
-coinSound.play()
-
-coinSound.onended=function(){
-playing=false
+if(playing) return;
+playing = true;
+coinSound.currentTime = 0;
+coinSound.play();
+coinSound.onended = function(){ playing=false; }
 }
 
+function estimateReward(){
+let vehicle = parseFloat(document.getElementById("vehicle").value);
+let service = parseFloat(document.getElementById("service").value);
+let pet = parseFloat(document.getElementById("pet").value);
+let steam = document.getElementById("steam").checked?15:0;
+let fresh = document.getElementById("fresh").checked?10:0;
+let total = (vehicle*service)+pet+steam+fresh;
+document.getElementById("price").innerHTML = "Estimated Price: $" + total;
+document.querySelector(".reward").classList.add("show");
+playCoin();
 }
-
 </script>
 
 </body>

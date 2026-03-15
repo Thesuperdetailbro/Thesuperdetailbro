@@ -6,21 +6,22 @@
 <title>Super Detail Bro</title>
 
 <!-- Mario-style font -->
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
 <style>
 body {
     margin:0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Press Start 2P', cursive;
     background: linear-gradient(#5ec5ff, #bde8ff);
+    color: white;
     overflow-x: hidden;
 }
 header {
     background: #e52521;
-    color: white;
     padding: 20px;
     text-align: center;
     font-family: 'Press Start 2P', cursive;
+    font-size: 24px;
 }
 nav {
     display: flex;
@@ -32,28 +33,29 @@ nav a {
     color: white;
     text-decoration: none;
     font-weight: bold;
+    font-size: 12px;
 }
 .hero {
     position: relative;
-    padding: 120px 20px;
+    padding: 140px 20px;
     text-align: center;
 }
 .hero h1 {
-    font-family: 'Press Start 2P', cursive;
     font-size: 28px;
     margin-bottom: 10px;
 }
-button {
+button.book-now {
     background: #ffcc00;
     border: none;
-    padding: 12px 22px;
+    padding: 18px 30px;
     font-weight: bold;
-    border-radius: 6px;
+    border-radius: 8px;
+    font-size: 14px;
     cursor: pointer;
     transition: transform 0.2s;
 }
-button:hover {
-    transform: scale(1.05);
+button.book-now:hover {
+    transform: scale(1.1);
 }
 .bronco {
     position: absolute;
@@ -96,7 +98,7 @@ button:hover {
     bottom: -50px;
     width: 30px;
     height: 30px;
-    background: url('https://i.imgur.com/jB4X2Hw.png') no-repeat;
+    background: url('https://i.imgur.com/MP6FvRy.png') no-repeat;
     background-size: contain;
     animation: bubbleRise 14s linear infinite;
 }
@@ -110,16 +112,16 @@ button:hover {
 }
 .services {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    max-width: 900px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    max-width: 1000px;
     margin: auto;
 }
 .card {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 5px 10px rgba(0,0,0,.1);
+    background: rgba(0,0,0,0.5);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.2);
 }
 .star-button {
     background: url('https://i.imgur.com/uzV5MrP.png') center no-repeat;
@@ -137,8 +139,7 @@ button:hover {
     transform: scale(1.15) rotate(10deg);
 }
 .arrow-text {
-    font-family: 'Press Start 2P';
-    font-size: 10px;
+    font-size: 12px;
     margin-bottom: 10px;
     animation: bounce 1s infinite;
 }
@@ -146,6 +147,34 @@ button:hover {
     0% { transform: translateY(0) }
     50% { transform: translateY(6px) }
     100% { transform: translateY(0) }
+}
+
+/* Estimator UI styles */
+#estimate select, #estimate input[type="checkbox"], #estimate label {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    margin: 10px;
+    padding: 10px;
+}
+#estimate button {
+    padding: 14px 24px;
+    font-size: 14px;
+    margin-top: 10px;
+    background: #ffcc00;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Booking form */
+form input, form textarea {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    padding: 10px;
+    width: 80%;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: none;
 }
 footer {
     background: #e52521;
@@ -177,16 +206,16 @@ SUPER DETAIL BRO
 <h1>Mobile Auto Detailing</h1>
 <p>We come to you and make your ride shine.</p>
 
-<button onclick="playCoin()">Book Now</button>
+<button class="book-now" onclick="playCoin()">Book Now</button>
 
-<img src="https://i.imgur.com/0r0fQ7E.png" class="bronco">
+<img src="https://i.imgur.com/j2dNE3F.png" class="bronco">
 <img src="https://i.imgur.com/F2cFpPz.png" class="cloud cloud1">
 <img src="https://i.imgur.com/F2cFpPz.png" class="cloud cloud2">
 <img src="https://i.imgur.com/F2cFpPz.png" class="cloud cloud3">
 
-<img src="https://i.imgur.com/LNnG0Pa.png" class="coin coin1">
-<img src="https://i.imgur.com/LNnG0Pa.png" class="coin coin2">
-<img src="https://i.imgur.com/LNnG0Pa.png" class="coin coin3">
+<img src="https://i.imgur.com/Rr3EXd6.png" class="coin coin1">
+<img src="https://i.imgur.com/Rr3EXd6.png" class="coin coin2">
+<img src="https://i.imgur.com/Rr3EXd6.png" class="coin coin3">
 
 <div class="bubble"></div>
 <div class="bubble"></div>
@@ -233,12 +262,11 @@ SUPER DETAIL BRO
 <section id="booking" class="section">
 <h2>Book Appointment</h2>
 <form>
-<input type="text" placeholder="Name" required><br><br>
-<input type="tel" placeholder="Phone" required><br><br>
-<input type="text" placeholder="Address"><br><br>
-<input type="text" placeholder="Vehicle"><br><br>
-<textarea placeholder="Notes"></textarea><br><br>
-
+<input type="text" placeholder="Name" required><br>
+<input type="tel" placeholder="Phone" required><br>
+<input type="text" placeholder="Address"><br>
+<input type="text" placeholder="Vehicle"><br>
+<textarea placeholder="Notes"></textarea><br>
 <div class="arrow-text">⬇ PRESS STAR TO CONFIRM</div>
 <button class="star-button" onclick="playCoin()"></button>
 </form>
@@ -249,6 +277,7 @@ Super Detail Bro Mobile Detailing
 </footer>
 
 <script>
+let coinPlayed = false;
 function estimate() {
     let vehicle = document.getElementById("vehicle").value;
     let service = document.getElementById("service").value;
@@ -258,13 +287,15 @@ function estimate() {
     let total = vehicle * service + pet + steam + fresh;
     document.getElementById("price").innerHTML = "Estimated Price: $" + total;
 }
-
 function playCoin() {
-    let audio = new Audio('https://www.myinstants.com/media/sounds/smb_coin.mp3');
-    audio.volume = 0.4;
-    audio.play();
+    if (!coinPlayed) {
+        let audio = new Audio('https://www.myinstants.com/media/sounds/smb_coin.mp3');
+        audio.volume = 0.4;
+        audio.play();
+        coinPlayed = true;
+        setTimeout(() => { coinPlayed = false; }, 500); // allow next click after 0.5s
+    }
 }
-
 document.addEventListener("DOMContentLoaded", function() {
     let music = document.getElementById("bgMusic");
     music.volume = 0.15;

@@ -20,7 +20,6 @@ header {
     background: #e52521;
     padding: 20px;
     text-align: center;
-    font-family: 'Press Start 2P', cursive;
     font-size: 24px;
 }
 nav {
@@ -157,7 +156,7 @@ button.book-now:hover {
     padding: 10px;
 }
 #estimate button {
-    padding: 14px 24px;
+    padding: 16px 28px;
     font-size: 14px;
     margin-top: 10px;
     background: #ffcc00;
@@ -277,7 +276,6 @@ Super Detail Bro Mobile Detailing
 </footer>
 
 <script>
-let coinPlayed = false;
 function estimate() {
     let vehicle = document.getElementById("vehicle").value;
     let service = document.getElementById("service").value;
@@ -287,15 +285,22 @@ function estimate() {
     let total = vehicle * service + pet + steam + fresh;
     document.getElementById("price").innerHTML = "Estimated Price: $" + total;
 }
+
+// Play coin sound once per click
 function playCoin() {
-    if (!coinPlayed) {
-        let audio = new Audio('https://www.myinstants.com/media/sounds/smb_coin.mp3');
+    if (!document.getElementById("coinSound")) {
+        let audio = document.createElement("audio");
+        audio.id = "coinSound";
+        audio.src = "https://www.myinstants.com/media/sounds/smb_coin.mp3";
         audio.volume = 0.4;
+        document.body.appendChild(audio);
         audio.play();
-        coinPlayed = true;
-        setTimeout(() => { coinPlayed = false; }, 500); // allow next click after 0.5s
+        audio.onended = () => {
+            audio.remove();
+        };
     }
 }
+
 document.addEventListener("DOMContentLoaded", function() {
     let music = document.getElementById("bgMusic");
     music.volume = 0.15;

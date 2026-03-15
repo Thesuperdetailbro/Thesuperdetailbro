@@ -16,7 +16,10 @@ font-family:'Press Start 2P',cursive;
 background:linear-gradient(#5ec5ff,#cceeff);
 color:white;
 text-align:center;
+overflow-x:hidden;
 }
+
+/* HEADER */
 
 header{
 background:#e52521;
@@ -24,11 +27,11 @@ padding:25px;
 }
 
 nav{
-margin-top:15px;
 display:flex;
 justify-content:center;
 gap:25px;
 flex-wrap:wrap;
+margin-top:10px;
 }
 
 nav a{
@@ -37,12 +40,11 @@ text-decoration:none;
 font-size:10px;
 }
 
-.section{
-padding:80px 20px;
-}
+/* HERO */
 
 .hero{
 padding:120px 20px;
+position:relative;
 }
 
 .mario-btn{
@@ -60,11 +62,66 @@ font-size:12px;
 transform:scale(1.1);
 }
 
+/* CLOUDS */
+
+.cloud{
+position:absolute;
+width:120px;
+animation:cloudMove 40s linear infinite;
+}
+
+.cloud1{top:60px;left:-150px;}
+.cloud2{top:120px;left:-200px;}
+.cloud3{top:20px;left:-100px;}
+
+@keyframes cloudMove{
+from{transform:translateX(0)}
+to{transform:translateX(140vw)}
+}
+
+/* COINS */
+
+.coin{
+position:absolute;
+width:40px;
+animation:coinFloat 4s ease-in-out infinite;
+}
+
+.coin1{top:240px;left:20%;}
+.coin2{top:260px;left:60%;}
+.coin3{top:200px;left:80%;}
+
+@keyframes coinFloat{
+0%{transform:translateY(0)}
+50%{transform:translateY(-15px)}
+100%{transform:translateY(0)}
+}
+
+/* BUBBLES */
+
+.bubble{
+position:absolute;
+bottom:-50px;
+width:25px;
+animation:bubbleRise 12s linear infinite;
+}
+
+@keyframes bubbleRise{
+from{transform:translateY(0)}
+to{transform:translateY(-120vh)}
+}
+
+/* SECTIONS */
+
+.section{
+padding:80px 20px;
+}
+
 /* SERVICES */
 
 .services{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:30px;
 max-width:1000px;
 margin:auto;
@@ -76,41 +133,13 @@ padding:30px;
 border-radius:12px;
 }
 
-.card h3{
-margin-bottom:15px;
-}
-
-/* BOOKING FORM */
-
-.booking-form{
-max-width:600px;
-margin:auto;
-display:flex;
-flex-direction:column;
-gap:15px;
-}
-
-.booking-form input,
-.booking-form select,
-.booking-form textarea{
-
-padding:14px;
-border-radius:8px;
-border:none;
-font-family:'Press Start 2P',cursive;
-}
-
-.booking-form button{
-margin-top:10px;
-}
-
 /* SLIDER */
 
 .slider{
-position:relative;
 max-width:700px;
 margin:auto;
 overflow:hidden;
+position:relative;
 }
 
 .slides{
@@ -130,7 +159,7 @@ top:50%;
 transform:translateY(-50%);
 background:#ffcc00;
 border:none;
-font-size:20px;
+font-size:22px;
 padding:12px 16px;
 cursor:pointer;
 }
@@ -138,13 +167,26 @@ cursor:pointer;
 .left{left:10px;}
 .right{right:10px;}
 
-.review{
-background:#2b2b2b;
-padding:25px;
-margin:20px auto;
-max-width:700px;
-border-radius:12px;
+/* BOOKING */
+
+.booking-form{
+max-width:600px;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:15px;
 }
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea{
+padding:14px;
+border-radius:8px;
+border:none;
+font-family:'Press Start 2P',cursive;
+}
+
+/* CONTACT BUTTONS */
 
 .contact-btn{
 display:block;
@@ -156,6 +198,16 @@ width:280px;
 border-radius:10px;
 text-decoration:none;
 font-size:10px;
+}
+
+/* REVIEWS */
+
+.review{
+background:#2b2b2b;
+padding:25px;
+margin:20px auto;
+max-width:700px;
+border-radius:12px;
 }
 
 footer{
@@ -184,12 +236,24 @@ margin-top:40px;
 
 </header>
 
-<section class="hero section">
+<section class="hero">
 
 <h2>Mobile Auto Detailing</h2>
 <p>We come to you and make your ride shine.</p>
 
-<button class="mario-btn" onclick="playCoin(); scrollToBooking()">BOOK NOW</button>
+<button class="mario-btn" onclick="playCoin();scrollToBooking()">BOOK NOW</button>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/63/Super_Mario_Bros._Coin.png" class="coin coin1">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/63/Super_Mario_Bros._Coin.png" class="coin coin2">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/63/Super_Mario_Bros._Coin.png" class="coin coin3">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Cartoon_cloud.svg" class="cloud cloud1">
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Cartoon_cloud.svg" class="cloud cloud2">
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Cartoon_cloud.svg" class="cloud cloud3">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Bubble_icon.svg" class="bubble" style="left:20%">
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Bubble_icon.svg" class="bubble" style="left:40%">
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Bubble_icon.svg" class="bubble" style="left:70%">
 
 </section>
 
@@ -201,12 +265,12 @@ margin-top:40px;
 
 <div class="card">
 <h3>Full Detail</h3>
-<p>Interior + exterior deep clean.</p>
+<p>Interior and exterior deep clean.</p>
 </div>
 
 <div class="card">
 <h3>Interior Detail</h3>
-<p>Vacuum, wipe down, carpet cleaning.</p>
+<p>Vacuum, wipe down, carpets cleaned.</p>
 </div>
 
 <div class="card">
@@ -216,7 +280,7 @@ margin-top:40px;
 
 <div class="card">
 <h3>Premium Package</h3>
-<p>Steam cleaning + pet hair removal.</p>
+<p>Steam cleaning and pet hair removal.</p>
 </div>
 
 </div>
@@ -249,15 +313,17 @@ margin-top:40px;
 
 <h2>Make Appointment</h2>
 
-<form class="booking-form">
+<form class="booking-form"
+action="https://formsubmit.co/thesuperdetailbro@gmail.com"
+method="POST">
 
-<input type="text" placeholder="Name" required>
+<input type="text" name="Name" placeholder="Name" required>
 
-<input type="tel" placeholder="Phone Number" required>
+<input type="tel" name="Phone" placeholder="Phone Number" required>
 
-<input type="text" placeholder="Address">
+<input type="text" name="Address" placeholder="Address">
 
-<select>
+<select name="Service">
 <option>Select Service</option>
 <option>Full Detail</option>
 <option>Interior Detail</option>
@@ -265,9 +331,13 @@ margin-top:40px;
 <option>Premium Package</option>
 </select>
 
-<input type="date">
+<input type="date" name="Appointment Date">
 
-<textarea placeholder="Vehicle & Notes"></textarea>
+<textarea name="Vehicle Notes" placeholder="Vehicle & Notes"></textarea>
+
+<input type="hidden" name="_subject" value="New Super Detail Bro Appointment">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_next" value="https://example.com">
 
 <button class="mario-btn" onclick="playCoin()">SUBMIT APPOINTMENT</button>
 
@@ -280,9 +350,7 @@ margin-top:40px;
 <h2>Customer Reviews</h2>
 
 <div class="review">⭐⭐⭐⭐⭐ "Car looked brand new after the detail."</div>
-
 <div class="review">⭐⭐⭐⭐⭐ "Super professional and came to my house."</div>
-
 <div class="review">⭐⭐⭐⭐⭐ "Best mobile detailing around!"</div>
 
 </section>
@@ -291,13 +359,9 @@ margin-top:40px;
 
 <h2>Contact</h2>
 
-<a class="contact-btn" href="tel:18314020853" onclick="playCoin()">
-📞 CALL 831-402-0853
-</a>
+<a class="contact-btn" href="tel:18314020853" onclick="playCoin()">📞 CALL 831-402-0853</a>
 
-<a class="contact-btn" href="mailto:thesuperdetailbro@gmail.com" onclick="playCoin()">
-✉️ EMAIL
-</a>
+<a class="contact-btn" href="mailto:thesuperdetailbro@gmail.com" onclick="playCoin()">✉️ EMAIL</a>
 
 </section>
 
@@ -315,17 +379,17 @@ SUPER DETAIL BRO MOBILE DETAILING
 
 <script>
 
-/* BOOK NOW SCROLL */
+/* SCROLL */
 
 function scrollToBooking(){
 
 document.getElementById("booking").scrollIntoView({
 behavior:"smooth"
-});
+})
 
 }
 
-/* MARIO COIN SOUND */
+/* COIN SOUND */
 
 const coinSound=new Audio("https://www.orangefreesounds.com/wp-content/uploads/2014/08/Mario-coin-sound.mp3")
 
@@ -333,7 +397,7 @@ let playing=false
 
 function playCoin(){
 
-if(playing) return
+if(playing)return
 
 playing=true
 
@@ -346,14 +410,14 @@ playing=false
 
 }
 
-/* GALLERY SLIDER */
+/* SLIDER */
 
 let currentSlide=0
 
 function showSlide(){
 
-const slides=document.querySelector(".slides")
-slides.style.transform="translateX(-"+currentSlide*100+"%)"
+document.querySelector(".slides").style.transform=
+"translateX(-"+currentSlide*100+"%)"
 
 }
 
@@ -363,7 +427,7 @@ const total=document.querySelectorAll(".slide").length
 
 currentSlide++
 
-if(currentSlide>=total) currentSlide=0
+if(currentSlide>=total)currentSlide=0
 
 showSlide()
 
@@ -375,7 +439,7 @@ const total=document.querySelectorAll(".slide").length
 
 currentSlide--
 
-if(currentSlide<0) currentSlide=total-1
+if(currentSlide<0)currentSlide=total-1
 
 showSlide()
 

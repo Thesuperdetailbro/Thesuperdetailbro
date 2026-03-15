@@ -3,308 +3,313 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Super Detail Bro</title>
 
-<!-- Mario-style font -->
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
 <style>
-body {
-    margin:0;
-    font-family: 'Press Start 2P', cursive;
-    background: linear-gradient(#5ec5ff, #bde8ff);
-    color: white;
-    overflow-x: hidden;
-}
-header {
-    background: #e52521;
-    padding: 20px;
-    text-align: center;
-    font-size: 24px;
-}
-nav {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 10px;
-}
-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 12px;
-}
-.hero {
-    position: relative;
-    padding: 140px 20px;
-    text-align: center;
-}
-.hero h1 {
-    font-size: 28px;
-    margin-bottom: 10px;
-}
-button.book-now {
-    background: #ffcc00;
-    border: none;
-    padding: 18px 30px;
-    font-weight: bold;
-    border-radius: 8px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-button.book-now:hover {
-    transform: scale(1.1);
-}
-.bronco {
-    position: absolute;
-    bottom: 10px;
-    width: 240px;
-    animation: drive 25s linear infinite;
-}
-@keyframes drive {
-    from { transform: translateX(-300px); }
-    to { transform: translateX(120vw); }
-}
-.cloud {
-    position: absolute;
-    width: 120px;
-    opacity: 0.9;
-    animation: drift 50s linear infinite;
-}
-.cloud1 { top: 40px; left: -150px; }
-.cloud2 { top: 100px; left: -200px; }
-.cloud3 { top: 20px; left: -100px; }
-@keyframes drift {
-    from { transform: translateX(0); }
-    to { transform: translateX(140vw); }
-}
-.coin {
-    position: absolute;
-    width: 40px;
-    animation: coinFloat 6s ease-in-out infinite;
-}
-.coin1 { left: 20%; top: 200px; }
-.coin2 { left: 60%; top: 260px; }
-.coin3 { left: 80%; top: 180px; }
-@keyframes coinFloat {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-    100% { transform: translateY(0); }
-}
-.bubble {
-    position: absolute;
-    bottom: -50px;
-    width: 30px;
-    height: 30px;
-    background: url('https://i.imgur.com/MP6FvRy.png') no-repeat;
-    background-size: contain;
-    animation: bubbleRise 14s linear infinite;
-}
-@keyframes bubbleRise {
-    from { transform: translateY(0); }
-    to { transform: translateY(-120vh); }
-}
-.section {
-    padding: 70px 20px;
-    text-align: center;
-}
-.services {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    max-width: 1000px;
-    margin: auto;
-}
-.card {
-    background: rgba(0,0,0,0.5);
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,.2);
-}
-.star-button {
-    background: url('https://i.imgur.com/uzV5MrP.png') center no-repeat;
-    background-size: contain;
-    width: 220px;
-    height: 90px;
-    border: none;
-    color: white;
-    font-weight: bold;
-    text-shadow: 2px 2px 5px black;
-    cursor: pointer;
-    transition: transform 0.3s;
-}
-.star-button:hover {
-    transform: scale(1.15) rotate(10deg);
-}
-.arrow-text {
-    font-size: 12px;
-    margin-bottom: 10px;
-    animation: bounce 1s infinite;
-}
-@keyframes bounce {
-    0% { transform: translateY(0) }
-    50% { transform: translateY(6px) }
-    100% { transform: translateY(0) }
+
+body{
+margin:0;
+font-family:'Press Start 2P',cursive;
+background:linear-gradient(#5ec5ff,#cceeff);
+color:white;
 }
 
-/* Estimator UI styles */
-#estimate select, #estimate input[type="checkbox"], #estimate label {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 14px;
-    margin: 10px;
-    padding: 10px;
-}
-#estimate button {
-    padding: 16px 28px;
-    font-size: 14px;
-    margin-top: 10px;
-    background: #ffcc00;
-    border-radius: 6px;
-    border: none;
-    cursor: pointer;
+header{
+background:#e52521;
+padding:25px;
+text-align:center;
 }
 
-/* Booking form */
-form input, form textarea {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 14px;
-    padding: 10px;
-    width: 80%;
-    margin-bottom: 15px;
-    border-radius: 6px;
-    border: none;
+header h1{
+margin:0;
+font-size:22px;
 }
-footer {
-    background: #e52521;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    margin-top: 40px;
+
+nav{
+margin-top:15px;
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:25px;
 }
+
+nav a{
+color:white;
+text-decoration:none;
+font-size:10px;
+}
+
+.section{
+padding:80px 20px;
+text-align:center;
+}
+
+.hero{
+padding:120px 20px;
+}
+
+.hero h2{
+font-size:22px;
+margin-bottom:15px;
+}
+
+.mario-btn{
+background:#ffcc00;
+color:black;
+border:none;
+padding:18px 28px;
+border-radius:10px;
+cursor:pointer;
+font-family:'Press Start 2P',cursive;
+font-size:12px;
+}
+
+.mario-btn:hover{
+transform:scale(1.1);
+}
+
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+max-width:1000px;
+margin:auto;
+}
+
+.card{
+background:#2b2b2b;
+padding:25px;
+border-radius:12px;
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+max-width:1000px;
+margin:auto;
+}
+
+.gallery img{
+width:100%;
+border-radius:10px;
+}
+
+.review{
+background:#2b2b2b;
+padding:25px;
+margin:20px auto;
+max-width:700px;
+border-radius:12px;
+}
+
+.contact-btn{
+display:block;
+background:#ffcc00;
+color:black;
+padding:18px;
+margin:15px auto;
+width:280px;
+border-radius:10px;
+text-decoration:none;
+font-size:10px;
+}
+
+footer{
+background:#e52521;
+padding:35px;
+text-align:center;
+font-size:9px;
+margin-top:40px;
+}
+
 </style>
 </head>
+
 <body>
 
-<!-- Background Music -->
-<audio id="bgMusic" autoplay loop>
-<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-</audio>
-
 <header>
-SUPER DETAIL BRO
+
+<h1>SUPER DETAIL BRO</h1>
+
 <nav>
+
 <a href="#services">Services</a>
 <a href="#estimate">Estimate</a>
 <a href="#gallery">Gallery</a>
-<a href="#booking">Book</a>
+<a href="#reviews">Reviews</a>
+<a href="#contact">Contact</a>
+
 </nav>
+
 </header>
 
-<section class="hero">
-<h1>Mobile Auto Detailing</h1>
+<section class="hero section">
+
+<h2>Mobile Auto Detailing</h2>
+
 <p>We come to you and make your ride shine.</p>
 
-<button class="book-now" onclick="playCoin()">Book Now</button>
-
-<img src="https://i.imgur.com/j2dNE3F.png" class="bronco">
-<img src="https://i.imgur.com/F2cFpPz.png" class="cloud cloud1">
-<img src="https://i.imgur.com/F2cFpPz.png" class="cloud cloud2">
-<img src="https://i.imgur.com/F2cFpPz.png" class="cloud cloud3">
-
-<img src="https://i.imgur.com/Rr3EXd6.png" class="coin coin1">
-<img src="https://i.imgur.com/Rr3EXd6.png" class="coin coin2">
-<img src="https://i.imgur.com/Rr3EXd6.png" class="coin coin3">
-
-<div class="bubble"></div>
-<div class="bubble"></div>
-<div class="bubble"></div>
+<button class="mario-btn" onclick="playCoin()">BOOK NOW</button>
 
 </section>
 
 <section id="services" class="section">
+
 <h2>Detailing Services</h2>
+
 <div class="services">
-<div class="card"><h3>Full Detail</h3><p>Interior and exterior cleaning.</p></div>
-<div class="card"><h3>Interior Detail</h3><p>Vacuum, wipe down, carpets.</p></div>
-<div class="card"><h3>Exterior Detail</h3><p>Foam wash and shine.</p></div>
-<div class="card"><h3>Premium Package</h3><p>Steam cleaning and pet hair removal.</p></div>
+
+<div class="card">
+<h3>Full Detail</h3>
+<p>Interior + exterior deep cleaning.</p>
 </div>
+
+<div class="card">
+<h3>Interior Detail</h3>
+<p>Vacuum, wipe down, carpets cleaned.</p>
+</div>
+
+<div class="card">
+<h3>Exterior Detail</h3>
+<p>Foam wash and shine protection.</p>
+</div>
+
+<div class="card">
+<h3>Premium Package</h3>
+<p>Steam cleaning and pet hair removal.</p>
+</div>
+
+</div>
+
 </section>
 
 <section id="estimate" class="section">
+
 <h2>Price Estimator</h2>
+
 <select id="vehicle">
 <option value="130">Small Car ($130)</option>
 <option value="150">Sedan ($150)</option>
 <option value="165">Truck/SUV ($165)</option>
 </select>
+
 <select id="service">
 <option value="1">Full Detail</option>
 <option value="0.5">Interior Only</option>
 <option value="0.5">Exterior Only</option>
 </select>
+
 <select id="pet">
 <option value="0">No Pet Hair</option>
 <option value="20">Light Pet Hair (+$20)</option>
 <option value="30">Medium Pet Hair (+$30)</option>
 <option value="40">Heavy Pet Hair (+$40)</option>
 </select>
-<label><input type="checkbox" id="steam"> Steam Cleaning (+$15)</label>
-<label><input type="checkbox" id="fresh"> 90 Day Air Freshener (+$10)</label>
 
 <br><br>
-<button onclick="estimate(); playCoin()">Calculate</button>
+
+<button class="mario-btn" onclick="estimate();playCoin()">CALCULATE</button>
+
 <h3 id="price"></h3>
+
 </section>
 
-<section id="booking" class="section">
-<h2>Book Appointment</h2>
-<form>
-<input type="text" placeholder="Name" required><br>
-<input type="tel" placeholder="Phone" required><br>
-<input type="text" placeholder="Address"><br>
-<input type="text" placeholder="Vehicle"><br>
-<textarea placeholder="Notes"></textarea><br>
-<div class="arrow-text">⬇ PRESS STAR TO CONFIRM</div>
-<button class="star-button" onclick="playCoin()"></button>
-</form>
+<section id="gallery" class="section">
+
+<h2>Before & After</h2>
+
+<div class="gallery">
+
+<img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70">
+<img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d">
+<img src="https://images.unsplash.com/photo-1502877338535-766e1452684a">
+
+</div>
+
+</section>
+
+<section id="reviews" class="section">
+
+<h2>Customer Reviews</h2>
+
+<div class="review">
+⭐⭐⭐⭐⭐  
+"Car looked brand new after the detail. Highly recommend!"
+</div>
+
+<div class="review">
+⭐⭐⭐⭐⭐  
+"Super professional and came right to my house."
+</div>
+
+<div class="review">
+⭐⭐⭐⭐⭐  
+"Best mobile detailing in the area!"
+</div>
+
+<button class="mario-btn"
+onclick="window.open('https://www.google.com/search?q=Super+Detail+Bro+reviews')">
+VIEW GOOGLE REVIEWS
+</button>
+
+</section>
+
+<section id="contact" class="section">
+
+<h2>Contact</h2>
+
+<a class="contact-btn" href="tel:18314020853" onclick="playCoin()">
+📞 CALL 831-402-0853
+</a>
+
+<a class="contact-btn" href="mailto:thesuperdetailbro@gmail.com" onclick="playCoin()">
+✉️ EMAIL
+</a>
+
 </section>
 
 <footer>
-Super Detail Bro Mobile Detailing
+
+SUPER DETAIL BRO MOBILE DETAILING
+
+<br><br>
+
+📞 831-402-0853  
+<br>
+✉️ thesuperdetailbro@gmail.com
+
 </footer>
 
 <script>
-function estimate() {
-    let vehicle = document.getElementById("vehicle").value;
-    let service = document.getElementById("service").value;
-    let pet = parseFloat(document.getElementById("pet").value);
-    let steam = document.getElementById("steam").checked ? 15 : 0;
-    let fresh = document.getElementById("fresh").checked ? 10 : 0;
-    let total = vehicle * service + pet + steam + fresh;
-    document.getElementById("price").innerHTML = "Estimated Price: $" + total;
+
+function estimate(){
+
+let vehicle=document.getElementById("vehicle").value
+let service=document.getElementById("service").value
+let pet=parseFloat(document.getElementById("pet").value)
+
+let total=vehicle*service+pet
+
+document.getElementById("price").innerHTML="Estimated Price: $"+total
+
 }
 
-// Play coin sound once per click
-function playCoin() {
-    if (!document.getElementById("coinSound")) {
-        let audio = document.createElement("audio");
-        audio.id = "coinSound";
-        audio.src = "https://www.myinstants.com/media/sounds/smb_coin.mp3";
-        audio.volume = 0.4;
-        document.body.appendChild(audio);
-        audio.play();
-        audio.onended = () => {
-            audio.remove();
-        };
-    }
+const coinSound=new Audio("https://www.myinstants.com/media/sounds/smb_coin.mp3")
+
+coinSound.volume=0.4
+
+function playCoin(){
+
+coinSound.pause()
+coinSound.currentTime=0
+coinSound.play()
+
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    let music = document.getElementById("bgMusic");
-    music.volume = 0.15;
-});
 </script>
 
 </body>

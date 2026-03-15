@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>Super Detail Bro</title>
 
@@ -13,7 +13,7 @@
 body{
 margin:0;
 font-family:'Press Start 2P',cursive;
-background:linear-gradient(#5ec5ff,#cceeff);
+background:linear-gradient(#5ec5ff,#bde8ff);
 color:white;
 text-align:center;
 overflow-x:hidden;
@@ -47,6 +47,8 @@ padding:120px 20px;
 position:relative;
 }
 
+/* BUTTON */
+
 .mario-btn{
 background:#ffcc00;
 color:black;
@@ -62,12 +64,69 @@ font-size:12px;
 transform:scale(1.1);
 }
 
+/* COINS */
+
+.coin{
+position:absolute;
+width:35px;
+height:35px;
+background:gold;
+border-radius:50%;
+box-shadow:0 0 0 4px #f7c400 inset;
+animation:coinFloat 4s ease-in-out infinite;
+}
+
+.coin:after{
+content:"$";
+position:absolute;
+color:#a87400;
+font-size:18px;
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
+}
+
+.coin1{top:230px;left:20%;}
+.coin2{top:260px;left:60%;}
+.coin3{top:210px;left:80%;}
+
+@keyframes coinFloat{
+0%{transform:translateY(0)}
+50%{transform:translateY(-15px)}
+100%{transform:translateY(0)}
+}
+
 /* CLOUDS */
 
 .cloud{
 position:absolute;
+background:white;
+border-radius:50px;
 width:120px;
+height:60px;
 animation:cloudMove 40s linear infinite;
+}
+
+.cloud:before,
+.cloud:after{
+content:"";
+position:absolute;
+background:white;
+border-radius:50%;
+}
+
+.cloud:before{
+width:60px;
+height:60px;
+top:-30px;
+left:10px;
+}
+
+.cloud:after{
+width:80px;
+height:80px;
+top:-40px;
+right:10px;
 }
 
 .cloud1{top:60px;left:-150px;}
@@ -79,30 +138,15 @@ from{transform:translateX(0)}
 to{transform:translateX(140vw)}
 }
 
-/* COINS */
-
-.coin{
-position:absolute;
-width:40px;
-animation:coinFloat 4s ease-in-out infinite;
-}
-
-.coin1{top:240px;left:20%;}
-.coin2{top:260px;left:60%;}
-.coin3{top:200px;left:80%;}
-
-@keyframes coinFloat{
-0%{transform:translateY(0)}
-50%{transform:translateY(-15px)}
-100%{transform:translateY(0)}
-}
-
 /* BUBBLES */
 
 .bubble{
 position:absolute;
 bottom:-50px;
-width:25px;
+width:20px;
+height:20px;
+background:rgba(255,255,255,.6);
+border-radius:50%;
 animation:bubbleRise 12s linear infinite;
 }
 
@@ -218,6 +262,7 @@ margin-top:40px;
 }
 
 </style>
+
 </head>
 
 <body>
@@ -239,21 +284,22 @@ margin-top:40px;
 <section class="hero">
 
 <h2>Mobile Auto Detailing</h2>
+
 <p>We come to you and make your ride shine.</p>
 
 <button class="mario-btn" onclick="playCoin();scrollToBooking()">BOOK NOW</button>
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/63/Super_Mario_Bros._Coin.png" class="coin coin1">
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/63/Super_Mario_Bros._Coin.png" class="coin coin2">
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/63/Super_Mario_Bros._Coin.png" class="coin coin3">
+<div class="coin coin1"></div>
+<div class="coin coin2"></div>
+<div class="coin coin3"></div>
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Cartoon_cloud.svg" class="cloud cloud1">
-<img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Cartoon_cloud.svg" class="cloud cloud2">
-<img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Cartoon_cloud.svg" class="cloud cloud3">
+<div class="cloud cloud1"></div>
+<div class="cloud cloud2"></div>
+<div class="cloud cloud3"></div>
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Bubble_icon.svg" class="bubble" style="left:20%">
-<img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Bubble_icon.svg" class="bubble" style="left:40%">
-<img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Bubble_icon.svg" class="bubble" style="left:70%">
+<div class="bubble" style="left:20%"></div>
+<div class="bubble" style="left:40%"></div>
+<div class="bubble" style="left:70%"></div>
 
 </section>
 
@@ -265,7 +311,7 @@ margin-top:40px;
 
 <div class="card">
 <h3>Full Detail</h3>
-<p>Interior and exterior deep clean.</p>
+<p>Interior + exterior deep clean.</p>
 </div>
 
 <div class="card">
@@ -280,30 +326,8 @@ margin-top:40px;
 
 <div class="card">
 <h3>Premium Package</h3>
-<p>Steam cleaning and pet hair removal.</p>
+<p>Steam cleaning + pet hair removal.</p>
 </div>
-
-</div>
-
-</section>
-
-<section id="gallery" class="section">
-
-<h2>Before & After</h2>
-
-<div class="slider">
-
-<button class="slide-btn left" onclick="prevSlide()">❮</button>
-
-<div class="slides">
-
-<img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d" class="slide">
-<img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70" class="slide">
-<img src="https://images.unsplash.com/photo-1502877338535-766e1452684a" class="slide">
-
-</div>
-
-<button class="slide-btn right" onclick="nextSlide()">❯</button>
 
 </div>
 
@@ -337,21 +361,10 @@ method="POST">
 
 <input type="hidden" name="_subject" value="New Super Detail Bro Appointment">
 <input type="hidden" name="_captcha" value="false">
-<input type="hidden" name="_next" value="https://example.com">
 
 <button class="mario-btn" onclick="playCoin()">SUBMIT APPOINTMENT</button>
 
 </form>
-
-</section>
-
-<section id="reviews" class="section">
-
-<h2>Customer Reviews</h2>
-
-<div class="review">⭐⭐⭐⭐⭐ "Car looked brand new after the detail."</div>
-<div class="review">⭐⭐⭐⭐⭐ "Super professional and came to my house."</div>
-<div class="review">⭐⭐⭐⭐⭐ "Best mobile detailing around!"</div>
 
 </section>
 
@@ -379,17 +392,11 @@ SUPER DETAIL BRO MOBILE DETAILING
 
 <script>
 
-/* SCROLL */
-
 function scrollToBooking(){
 
-document.getElementById("booking").scrollIntoView({
-behavior:"smooth"
-})
+document.getElementById("booking").scrollIntoView({behavior:"smooth"})
 
 }
-
-/* COIN SOUND */
 
 const coinSound=new Audio("https://www.orangefreesounds.com/wp-content/uploads/2014/08/Mario-coin-sound.mp3")
 
@@ -407,41 +414,6 @@ coinSound.play()
 coinSound.onended=function(){
 playing=false
 }
-
-}
-
-/* SLIDER */
-
-let currentSlide=0
-
-function showSlide(){
-
-document.querySelector(".slides").style.transform=
-"translateX(-"+currentSlide*100+"%)"
-
-}
-
-function nextSlide(){
-
-const total=document.querySelectorAll(".slide").length
-
-currentSlide++
-
-if(currentSlide>=total)currentSlide=0
-
-showSlide()
-
-}
-
-function prevSlide(){
-
-const total=document.querySelectorAll(".slide").length
-
-currentSlide--
-
-if(currentSlide<0)currentSlide=total-1
-
-showSlide()
 
 }
 

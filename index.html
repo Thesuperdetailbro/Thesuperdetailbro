@@ -23,6 +23,163 @@ background:#5c94fc;
 color:white;
 text-align:center;
 overflow-x:hidden;
+position:relative;
+}
+
+/* FULL PAGE MARIO SKY */
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background:#5c94fc;
+z-index:-5;
+}
+
+/* FULL PAGE BACKGROUND DECOR */
+.page-bg{
+position:fixed;
+inset:0;
+pointer-events:none;
+z-index:-4;
+overflow:hidden;
+}
+
+.bg-cloud{
+position:absolute;
+width:92px;
+height:28px;
+background:#fff;
+box-shadow:
+28px 0 0 #fff,
+56px 0 0 #fff,
+14px -14px 0 #fff,
+42px -14px 0 #fff,
+70px -14px 0 #fff,
+28px 14px 0 #fff,
+56px 14px 0 #fff,
+14px 14px 0 #fff;
+opacity:1;
+}
+
+.bg-cloud.c1{top:80px;left:8%;}
+.bg-cloud.c2{top:140px;right:12%;}
+.bg-cloud.c3{top:320px;left:24%;}
+.bg-cloud.c4{top:520px;right:28%;}
+.bg-cloud.c5{top:860px;left:12%;}
+.bg-cloud.c6{top:1180px;right:10%;}
+.bg-cloud.c7{top:1480px;left:30%;}
+
+.bg-hill{
+position:absolute;
+background:#18b800;
+border:4px solid #000;
+border-bottom:none;
+border-radius:140px 140px 0 0;
+}
+
+.bg-hill::before,
+.bg-hill::after{
+content:"";
+position:absolute;
+background:#000;
+width:8px;
+height:22px;
+border-radius:4px;
+top:48%;
+}
+
+.bg-hill::before{left:38%;}
+.bg-hill::after{left:58%;}
+
+.bg-hill.h1{
+width:170px;
+height:100px;
+left:-10px;
+top:620px;
+}
+
+.bg-hill.h2{
+width:120px;
+height:70px;
+right:30px;
+top:980px;
+}
+
+.bg-hill.h3{
+width:150px;
+height:90px;
+left:70%;
+top:1340px;
+}
+
+.bg-bush{
+position:absolute;
+width:120px;
+height:56px;
+}
+
+.bg-bush::before,
+.bg-bush::after{
+content:"";
+position:absolute;
+background:#7de03d;
+border:4px solid #000;
+border-bottom:none;
+border-radius:80px 80px 0 0;
+}
+
+.bg-bush::before{
+left:0;
+bottom:0;
+width:64px;
+height:54px;
+}
+
+.bg-bush::after{
+left:44px;
+bottom:0;
+width:64px;
+height:54px;
+box-shadow:44px 0 0 #7de03d;
+}
+
+.bg-bush.b1{left:42%;top:700px;}
+.bg-bush.b2{right:4%;top:1530px;}
+
+/* FULL PAGE GROUND */
+.mario-ground{
+position:fixed;
+bottom:0;
+left:0;
+right:0;
+height:70px;
+background:
+repeating-linear-gradient(
+to right,
+#c96a2b 0 32px,
+#b85b1d 32px 64px
+);
+border-top:4px solid #000;
+z-index:-3;
+}
+
+.mario-ground::before{
+content:"";
+position:absolute;
+inset:0;
+background:
+repeating-linear-gradient(
+to right,
+transparent 0 28px,
+#000 28px 32px,
+transparent 32px 64px
+),
+repeating-linear-gradient(
+to bottom,
+transparent 0 26px,
+#000 26px 30px,
+transparent 30px 64px
+);
 }
 
 /* HEADER */
@@ -65,7 +222,7 @@ color:#ffdc5e;
 position:relative;
 min-height:560px;
 padding:90px 20px 180px;
-background:#5c94fc;
+background:transparent;
 overflow:hidden;
 }
 
@@ -112,7 +269,7 @@ transform:translateY(3px);
 box-shadow:0 3px 0 #c19100;
 }
 
-/* PIXEL CLOUDS */
+/* HERO MARIO SCENE */
 .pixel-cloud{
 position:absolute;
 width:92px;
@@ -134,14 +291,12 @@ box-shadow:
 .cloud2{ top:70px; right:15%; }
 .cloud3{ top:180px; left:32%; transform:scale(.9); }
 
-/* QUESTION BLOCKS */
 .question-block,
 .brick-block{
 position:absolute;
 width:56px;
 height:56px;
 z-index:3;
-image-rendering:pixelated;
 }
 
 .question-block{
@@ -185,7 +340,6 @@ opacity:.9;
 .b2{ right:22%; top:390px; }
 .b3{ right:6%; top:390px; }
 
-/* MUSHROOM */
 .mushroom{
 position:absolute;
 right:17%;
@@ -223,7 +377,6 @@ border:4px solid #000;
 border-top:none;
 }
 
-/* HILLS */
 .hill{
 position:absolute;
 bottom:64px;
@@ -260,17 +413,17 @@ width:140px;
 height:78px;
 }
 
-.small-bush,
-.big-bush{
+.big-bush,
+.small-bush{
 position:absolute;
 bottom:64px;
 z-index:2;
 }
 
-.small-bush::before,
-.small-bush::after,
 .big-bush::before,
-.big-bush::after{
+.big-bush::after,
+.small-bush::before,
+.small-bush::after{
 content:"";
 position:absolute;
 background:#7de03d;
@@ -283,16 +436,6 @@ border-radius:80px 80px 0 0;
 left:42%;
 width:170px;
 height:70px;
-}
-
-.big-bush,
-.big-bush::before,
-.big-bush::after{
-background:#7de03d;
-}
-
-.big-bush{
-border:none;
 }
 
 .big-bush::before{
@@ -314,7 +457,6 @@ box-shadow:48px 0 0 #7de03d;
 right:3%;
 width:90px;
 height:56px;
-border:none;
 }
 
 .small-bush::before{
@@ -331,7 +473,6 @@ width:54px;
 height:54px;
 }
 
-/* GOOMBA */
 .goomba{
 position:absolute;
 right:16%;
@@ -382,8 +523,7 @@ border-top:none;
 .goomba-feet::before{ left:3px; }
 .goomba-feet::after{ right:3px; }
 
-/* GROUND */
-.ground{
+.hero-ground{
 position:absolute;
 left:0;
 right:0;
@@ -399,7 +539,7 @@ border-top:4px solid #000;
 z-index:1;
 }
 
-.ground::before{
+.hero-ground::before{
 content:"";
 position:absolute;
 inset:0;
@@ -416,13 +556,12 @@ transparent 0 26px,
 #000 26px 30px,
 transparent 30px 64px
 );
-opacity:1;
 }
 
 /* SECTIONS */
 .section{
-padding:72px 20px;
-background:#5c94fc;
+padding:72px 20px 90px;
+background:transparent;
 }
 
 .section h2{
@@ -641,7 +780,7 @@ transform:translateY(-2px);
 /* FOOTER */
 footer{
 background:#e52521;
-padding:28px 16px;
+padding:28px 16px 110px;
 border-top:6px solid #b81412;
 font-size:9px;
 line-height:2;
@@ -699,17 +838,38 @@ width:100px;
 height:60px;
 }
 
-.hill3{
+.cloud3{
 display:none;
 }
 
-.cloud3{
+.bg-cloud.c4,
+.bg-cloud.c6,
+.bg-cloud.c7,
+.bg-hill.h3,
+.bg-bush.b2{
 display:none;
 }
 }
 </style>
 </head>
 <body>
+
+<div class="page-bg">
+<div class="bg-cloud c1"></div>
+<div class="bg-cloud c2"></div>
+<div class="bg-cloud c3"></div>
+<div class="bg-cloud c4"></div>
+<div class="bg-cloud c5"></div>
+<div class="bg-cloud c6"></div>
+<div class="bg-cloud c7"></div>
+
+<div class="bg-hill h1"></div>
+<div class="bg-hill h2"></div>
+<div class="bg-hill h3"></div>
+
+<div class="bg-bush b1"></div>
+<div class="bg-bush b2"></div>
+</div>
 
 <header>
 <h1>SUPER DETAIL BRO</h1>
@@ -754,7 +914,7 @@ display:none;
 <div class="goomba"></div>
 <div class="goomba-feet"></div>
 
-<div class="ground"></div>
+<div class="hero-ground"></div>
 </section>
 
 <section id="services" class="section">
@@ -871,6 +1031,8 @@ SUPER DETAIL BRO MOBILE DETAILING<br>
 831-402-0853<br>
 THESUPERDETAILBRO@GMAIL.COM
 </footer>
+
+<div class="mario-ground"></div>
 
 <script>
 function scrollToBooking(){

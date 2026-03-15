@@ -60,6 +60,8 @@ font-size:12px;
 transform:scale(1.1);
 }
 
+/* SERVICES */
+
 .services{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -70,33 +72,36 @@ margin:auto;
 
 .card{
 background:#2b2b2b;
-padding:25px;
+padding:30px;
 border-radius:12px;
 }
 
-.review{
-background:#2b2b2b;
-padding:25px;
-margin:20px auto;
-max-width:700px;
-border-radius:12px;
+.card h3{
+margin-bottom:15px;
 }
 
-.contact-btn{
-display:block;
-background:#ffcc00;
-color:black;
-padding:18px;
-margin:15px auto;
-width:280px;
-border-radius:10px;
-text-decoration:none;
-font-size:10px;
+/* BOOKING FORM */
+
+.booking-form{
+max-width:600px;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:15px;
 }
 
-select{
-padding:12px;
+.booking-form input,
+.booking-form select,
+.booking-form textarea{
+
+padding:14px;
+border-radius:8px;
+border:none;
 font-family:'Press Start 2P',cursive;
+}
+
+.booking-form button{
+margin-top:10px;
 }
 
 /* SLIDER */
@@ -130,12 +135,27 @@ padding:12px 16px;
 cursor:pointer;
 }
 
-.left{
-left:10px;
+.left{left:10px;}
+.right{right:10px;}
+
+.review{
+background:#2b2b2b;
+padding:25px;
+margin:20px auto;
+max-width:700px;
+border-radius:12px;
 }
 
-.right{
-right:10px;
+.contact-btn{
+display:block;
+background:#ffcc00;
+color:black;
+padding:18px;
+margin:15px auto;
+width:280px;
+border-radius:10px;
+text-decoration:none;
+font-size:10px;
 }
 
 footer{
@@ -156,8 +176,8 @@ margin-top:40px;
 
 <nav>
 <a href="#services">Services</a>
-<a href="#estimate">Estimate</a>
 <a href="#gallery">Gallery</a>
+<a href="#booking">Book</a>
 <a href="#reviews">Reviews</a>
 <a href="#contact">Contact</a>
 </nav>
@@ -167,10 +187,9 @@ margin-top:40px;
 <section class="hero section">
 
 <h2>Mobile Auto Detailing</h2>
-
 <p>We come to you and make your ride shine.</p>
 
-<button class="mario-btn" onclick="playCoin()">BOOK NOW</button>
+<button class="mario-btn" onclick="playCoin(); scrollToBooking()">BOOK NOW</button>
 
 </section>
 
@@ -182,60 +201,25 @@ margin-top:40px;
 
 <div class="card">
 <h3>Full Detail</h3>
-<p>Interior and exterior deep cleaning.</p>
+<p>Interior + exterior deep clean.</p>
 </div>
 
 <div class="card">
 <h3>Interior Detail</h3>
-<p>Vacuum, wipe down, carpets cleaned.</p>
+<p>Vacuum, wipe down, carpet cleaning.</p>
 </div>
 
 <div class="card">
 <h3>Exterior Detail</h3>
-<p>Foam wash and shine protection.</p>
+<p>Foam wash, wheels cleaned, shine.</p>
 </div>
 
 <div class="card">
 <h3>Premium Package</h3>
-<p>Steam cleaning and pet hair removal.</p>
+<p>Steam cleaning + pet hair removal.</p>
 </div>
 
 </div>
-
-</section>
-
-<section id="estimate" class="section">
-
-<h2>Price Estimator</h2>
-
-<select id="vehicle">
-<option value="130">Small Car ($130)</option>
-<option value="150">Sedan ($150)</option>
-<option value="165">Truck/SUV ($165)</option>
-</select>
-
-<br><br>
-
-<select id="service">
-<option value="1">Full Detail</option>
-<option value="0.5">Interior Only</option>
-<option value="0.5">Exterior Only</option>
-</select>
-
-<br><br>
-
-<select id="pet">
-<option value="0">No Pet Hair</option>
-<option value="20">Light Pet Hair (+$20)</option>
-<option value="30">Medium Pet Hair (+$30)</option>
-<option value="40">Heavy Pet Hair (+$40)</option>
-</select>
-
-<br><br>
-
-<button class="mario-btn" onclick="estimate();playCoin()">CALCULATE</button>
-
-<h3 id="price"></h3>
 
 </section>
 
@@ -261,18 +245,45 @@ margin-top:40px;
 
 </section>
 
+<section id="booking" class="section">
+
+<h2>Make Appointment</h2>
+
+<form class="booking-form">
+
+<input type="text" placeholder="Name" required>
+
+<input type="tel" placeholder="Phone Number" required>
+
+<input type="text" placeholder="Address">
+
+<select>
+<option>Select Service</option>
+<option>Full Detail</option>
+<option>Interior Detail</option>
+<option>Exterior Detail</option>
+<option>Premium Package</option>
+</select>
+
+<input type="date">
+
+<textarea placeholder="Vehicle & Notes"></textarea>
+
+<button class="mario-btn" onclick="playCoin()">SUBMIT APPOINTMENT</button>
+
+</form>
+
+</section>
+
 <section id="reviews" class="section">
 
 <h2>Customer Reviews</h2>
 
 <div class="review">⭐⭐⭐⭐⭐ "Car looked brand new after the detail."</div>
-<div class="review">⭐⭐⭐⭐⭐ "Super professional and came to my house."</div>
-<div class="review">⭐⭐⭐⭐⭐ "Best mobile detailing around!"</div>
 
-<button class="mario-btn"
-onclick="window.open('https://www.google.com/search?q=Super+Detail+Bro+reviews')">
-VIEW GOOGLE REVIEWS
-</button>
+<div class="review">⭐⭐⭐⭐⭐ "Super professional and came to my house."</div>
+
+<div class="review">⭐⭐⭐⭐⭐ "Best mobile detailing around!"</div>
 
 </section>
 
@@ -304,26 +315,19 @@ SUPER DETAIL BRO MOBILE DETAILING
 
 <script>
 
-/* ESTIMATE CALCULATOR */
+/* BOOK NOW SCROLL */
 
-function estimate(){
+function scrollToBooking(){
 
-let vehicle=document.getElementById("vehicle").value
-let service=document.getElementById("service").value
-let pet=parseFloat(document.getElementById("pet").value)
-
-let total=vehicle*service+pet
-
-document.getElementById("price").innerHTML="Estimated Price: $"+total
+document.getElementById("booking").scrollIntoView({
+behavior:"smooth"
+});
 
 }
 
 /* MARIO COIN SOUND */
 
 const coinSound=new Audio("https://www.orangefreesounds.com/wp-content/uploads/2014/08/Mario-coin-sound.mp3")
-
-coinSound.volume=0.4
-coinSound.preload="auto"
 
 let playing=false
 
@@ -334,7 +338,7 @@ if(playing) return
 playing=true
 
 coinSound.currentTime=0
-coinSound.play().catch(()=>{})
+coinSound.play()
 
 coinSound.onended=function(){
 playing=false
@@ -342,7 +346,7 @@ playing=false
 
 }
 
-/* SLIDER */
+/* GALLERY SLIDER */
 
 let currentSlide=0
 
@@ -359,9 +363,7 @@ const total=document.querySelectorAll(".slide").length
 
 currentSlide++
 
-if(currentSlide>=total){
-currentSlide=0
-}
+if(currentSlide>=total) currentSlide=0
 
 showSlide()
 
@@ -373,9 +375,7 @@ const total=document.querySelectorAll(".slide").length
 
 currentSlide--
 
-if(currentSlide<0){
-currentSlide=total-1
-}
+if(currentSlide<0) currentSlide=total-1
 
 showSlide()
 

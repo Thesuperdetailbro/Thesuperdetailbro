@@ -4,13 +4,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Super Detail Bro</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
 <style>
-
 *{
 box-sizing:border-box;
 }
@@ -21,24 +18,20 @@ scroll-behavior:smooth;
 
 body{
 margin:0;
-font-family:'Press Start 2P',cursive;
-background:#5c94fc;
-color:white;
-text-align:center;
+font-family:Arial, sans-serif;
+background:#67a7ff;
+color:#111;
 overflow-x:hidden;
 }
 
-/* SKY BACKGROUND */
-
+/* BACKGROUND */
 .sky-bg{
 position:fixed;
 inset:0;
 pointer-events:none;
 z-index:-5;
-background:#5c94fc;
+background:linear-gradient(to bottom,#67a7ff 0%,#8fc0ff 100%);
 }
-
-/* PIXEL CLOUDS */
 
 .cloud{
 position:absolute;
@@ -54,251 +47,584 @@ box-shadow:
 15px 15px #fff,
 45px 15px #fff,
 75px 15px #fff;
+opacity:.85;
 }
 
 .cloud1{top:80px;left:8%;}
 .cloud2{top:170px;right:14%;}
 .cloud3{top:420px;left:18%;}
-.cloud4{top:760px;right:12%;}
-.cloud5{top:1120px;left:12%;}
-.cloud6{top:1450px;right:20%;}
+.cloud4{top:760px;right:10%;}
+.cloud5{top:1150px;left:10%;}
+.cloud6{top:1500px;right:18%;}
 
 /* HEADER */
-
 header{
-background:#e52521;
-padding:18px;
-border-bottom:6px solid #b81412;
 position:sticky;
 top:0;
 z-index:1000;
+background:rgba(255,255,255,.92);
+backdrop-filter:blur(8px);
+border-bottom:1px solid rgba(0,0,0,.08);
 }
 
-header h1{
+.header-inner{
+max-width:1180px;
+margin:auto;
+padding:14px 18px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.logo-wrap{
+display:flex;
+align-items:center;
+gap:14px;
+}
+
+.logo{
+width:115px;
+max-width:100%;
+display:block;
+}
+
+.brand-text{
+text-align:left;
+}
+
+.brand-text h1{
 margin:0;
-font-size:20px;
-text-shadow:3px 3px 0 #000;
+font-family:'Press Start 2P',cursive;
+font-size:16px;
+line-height:1.4;
+color:#111;
 }
 
 .owner-note{
-font-size:8px;
-margin-top:6px;
-color:#ffd54d;
-text-shadow:2px 2px 0 #000;
+margin:6px 0 0;
+font-size:12px;
+font-weight:700;
+color:#d63a2f;
+}
+
+.tagline{
+margin:5px 0 0;
+font-size:12px;
+font-weight:700;
+color:#1d4ed8;
 }
 
 nav{
 display:flex;
-justify-content:center;
 gap:18px;
 flex-wrap:wrap;
-margin-top:14px;
+align-items:center;
+justify-content:center;
 }
 
 nav a{
-color:white;
 text-decoration:none;
-font-size:10px;
-text-shadow:2px 2px 0 #000;
+color:#111;
+font-weight:700;
+font-size:14px;
 }
 
 nav a:hover{
-color:#ffdc5e;
+color:#d63a2f;
+}
+
+/* GENERAL */
+.container{
+max-width:1180px;
+margin:auto;
+padding:0 20px;
+}
+
+section{
+padding:72px 0;
+}
+
+.section-title{
+font-family:'Press Start 2P',cursive;
+font-size:26px;
+line-height:1.5;
+margin:0 0 14px;
+text-align:center;
+color:#111;
+}
+
+.section-sub{
+max-width:760px;
+margin:0 auto 34px;
+text-align:center;
+font-size:15px;
+line-height:1.8;
+color:#1f2937;
+}
+
+/* BUTTONS */
+.btn{
+display:inline-block;
+text-decoration:none;
+border:none;
+cursor:pointer;
+padding:16px 24px;
+border-radius:14px;
+font-weight:800;
+font-size:14px;
+transition:.2s ease;
+}
+
+.btn-primary{
+background:#e53935;
+color:white;
+box-shadow:0 8px 18px rgba(229,57,53,.28);
+}
+
+.btn-primary:hover{
+transform:translateY(-2px);
+}
+
+.btn-secondary{
+background:#ffcc00;
+color:#111;
+box-shadow:0 8px 18px rgba(255,204,0,.28);
+}
+
+.btn-secondary:hover{
+transform:translateY(-2px);
 }
 
 /* HERO */
-
 .hero{
-padding:100px 20px 60px;
+padding:70px 0 54px;
+}
+
+.hero-card{
+max-width:1180px;
+margin:auto;
+background:rgba(255,255,255,.92);
+border-radius:28px;
+padding:38px;
+box-shadow:0 18px 50px rgba(0,0,0,.12);
+display:grid;
+grid-template-columns:1.15fr .85fr;
+gap:28px;
+align-items:center;
+}
+
+.hero-copy{
+text-align:left;
+}
+
+.kicker{
+display:inline-block;
+background:#ffcc00;
+color:#111;
+padding:10px 14px;
+border-radius:999px;
+font-weight:800;
+font-size:12px;
+margin-bottom:18px;
 }
 
 .hero h2{
-font-size:22px;
-text-shadow:3px 3px 0 #000;
+font-family:'Press Start 2P',cursive;
+font-size:34px;
+line-height:1.45;
+margin:0 0 18px;
+color:#111;
 }
 
 .hero p{
-font-size:10px;
-line-height:2;
+font-size:16px;
+line-height:1.9;
+color:#1f2937;
+margin:0 0 24px;
+max-width:650px;
 }
 
-.mario-btn{
-background:#ffcc00;
-border:none;
-padding:18px 24px;
+.hero-actions{
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+}
+
+.hero-panel{
+background:linear-gradient(145deg,#e53935 0%,#ffcc00 100%);
+border-radius:24px;
+padding:22px;
+color:white;
+text-align:left;
+min-height:100%;
+box-shadow:0 16px 34px rgba(0,0,0,.15);
+}
+
+.hero-panel h3{
 font-family:'Press Start 2P',cursive;
-font-size:11px;
-cursor:pointer;
-box-shadow:0 6px 0 #c19100;
-border-radius:8px;
-}
-
-.mario-btn:active{
-transform:translateY(3px);
-box-shadow:0 3px 0 #c19100;
-}
-
-/* SECTIONS */
-
-.section{
-padding:70px 20px;
-}
-
-.section h2{
 font-size:18px;
-margin-bottom:28px;
-text-shadow:3px 3px 0 #000;
+line-height:1.6;
+margin:0 0 18px;
+}
+
+.hero-list{
+display:grid;
+gap:12px;
+font-size:14px;
+font-weight:700;
+line-height:1.7;
+}
+
+/* TRUST BAR */
+.trust-bar{
+padding-top:0;
+}
+
+.trust-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:18px;
+}
+
+.trust-item{
+background:rgba(255,255,255,.92);
+border-radius:20px;
+padding:22px 18px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.trust-item strong{
+display:block;
+font-family:'Press Start 2P',cursive;
+font-size:12px;
+line-height:1.6;
+margin-bottom:10px;
+color:#111;
+}
+
+.trust-item span{
+font-size:14px;
+line-height:1.8;
+color:#374151;
 }
 
 /* SERVICES */
-
-.services{
+.services-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+grid-template-columns:repeat(4,1fr);
 gap:22px;
-max-width:1000px;
-margin:auto;
 }
 
-.card{
-background:#1f1f1f;
-padding:28px;
-border:4px solid #000;
-border-radius:12px;
+.service-card{
+background:rgba(255,255,255,.94);
+border-radius:22px;
+padding:28px 22px;
+box-shadow:0 14px 34px rgba(0,0,0,.10);
+text-align:left;
+border-top:8px solid #ffcc00;
 }
 
-.card h3{
-color:#ffdc5e;
-font-size:12px;
+.service-card.premium{
+border-top-color:#e53935;
 }
 
-/* ESTIMATOR */
-
-.estimator{
-max-width:600px;
-margin:auto;
-background:#1f1f1f;
-padding:30px;
-border:4px solid #000;
-border-radius:12px;
-}
-
-.estimator select,
-.estimator textarea,
-.estimator input{
-width:100%;
-padding:12px;
-margin:10px 0;
+.service-card h3{
 font-family:'Press Start 2P',cursive;
-font-size:10px;
+font-size:15px;
+line-height:1.6;
+margin:0 0 14px;
+color:#111;
 }
 
-.reward{
-margin-top:20px;
+.service-card p{
+font-size:14px;
+line-height:1.9;
+margin:0;
+color:#374151;
+}
+
+/* QUOTE + BOOK */
+.quote-wrap{
+display:grid;
+grid-template-columns:1fr .95fr;
+gap:28px;
+align-items:start;
+}
+
+.quote-box,
+.info-box{
+background:rgba(255,255,255,.94);
+border-radius:24px;
+padding:28px;
+box-shadow:0 14px 34px rgba(0,0,0,.10);
+}
+
+.quote-box h3,
+.info-box h3{
+font-family:'Press Start 2P',cursive;
+font-size:17px;
+line-height:1.6;
+margin:0 0 16px;
+color:#111;
+text-align:left;
+}
+
+.quote-box p,
+.info-box p{
+text-align:left;
+font-size:14px;
+line-height:1.9;
+color:#374151;
+margin:0 0 18px;
+}
+
+.form-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:14px;
+}
+
+.full{
+grid-column:1 / -1;
+}
+
+.quote-box select,
+.quote-box input,
+.quote-box textarea{
+width:100%;
+padding:14px;
+border-radius:14px;
+border:1px solid #d1d5db;
+font-size:14px;
+background:white;
+}
+
+.checkbox-group{
+display:grid;
+gap:10px;
+text-align:left;
+font-size:14px;
+color:#111;
+}
+
+.checkbox-group label{
+display:flex;
+gap:10px;
+align-items:flex-start;
+line-height:1.7;
+}
+
+.price-panel{
+margin-top:18px;
+background:#111827;
+color:white;
+border-radius:18px;
+padding:20px;
+text-align:center;
 opacity:0;
-transform:scale(.7);
-transition:.3s;
+transform:scale(.96);
+transition:.25s ease;
 }
 
-.reward.show{
+.price-panel.show{
 opacity:1;
 transform:scale(1);
 }
 
-.reward-coin{
-width:50px;
-height:50px;
-background:gold;
+.price-panel .coin{
+width:56px;
+height:56px;
+margin:0 auto 12px;
 border-radius:50%;
-margin:auto;
-box-shadow:0 0 0 5px #f1ba00 inset;
+background:gold;
+box-shadow:0 0 0 6px #f1ba00 inset;
 display:flex;
 align-items:center;
 justify-content:center;
+font-family:'Press Start 2P',cursive;
 font-size:18px;
 color:#9a6b00;
 }
 
-/* DISCOUNT COLORS */
+#price{
+font-family:'Press Start 2P',cursive;
+font-size:18px;
+line-height:1.6;
+color:#ffcc00;
+}
 
-.common{color:white;}
-.uncommon{color:#62ff71;}
-.rare{color:#ff6b6b;}
-.epic{color:#c06cff;}
+.price-message{
+margin-top:10px;
+font-weight:800;
+font-size:14px;
+line-height:1.7;
+}
+
+.common{color:#fff;}
+.uncommon{color:#5df27c;}
+.rare{color:#ff8686;}
+.epic{color:#cd8bff;}
 .legendary{color:#ffd700;}
 
+.submit-note{
+margin-top:14px;
+font-size:12px;
+line-height:1.7;
+color:#6b7280;
+text-align:left;
+}
+
+.submit-btn:disabled{
+opacity:.5;
+cursor:not-allowed;
+transform:none;
+}
+
+.info-list{
+display:grid;
+gap:14px;
+margin-top:14px;
+}
+
+.info-chip{
+background:#f3f4f6;
+border-radius:14px;
+padding:14px;
+font-size:14px;
+font-weight:700;
+line-height:1.7;
+color:#111;
+}
+
 /* GALLERY */
-
-.slider{
-max-width:700px;
-margin:auto;
-overflow:hidden;
-position:relative;
-border:4px solid #000;
+.gallery-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
 }
 
-.slides{
-display:flex;
-transition:.4s;
-}
-
-.slide{
+.gallery-grid img{
 width:100%;
-flex-shrink:0;
-height:350px;
+height:280px;
 object-fit:cover;
-}
-
-.slide-btn{
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-background:#ffcc00;
-border:none;
-padding:12px;
-cursor:pointer;
-}
-
-/* BOOKING */
-
-.booking-form{
-max-width:650px;
-margin:auto;
-display:flex;
-flex-direction:column;
-gap:12px;
-background:#1f1f1f;
-padding:30px;
-border:4px solid #000;
-border-radius:12px;
+border-radius:20px;
+box-shadow:0 12px 28px rgba(0,0,0,.12);
+display:block;
 }
 
 /* CONTACT */
+.contact-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+}
 
-.contact-btn{
-display:block;
-background:#ffcc00;
-color:black;
-padding:20px;
-margin:15px auto;
-width:260px;
+.contact-card{
+background:rgba(255,255,255,.94);
+border-radius:20px;
+padding:24px;
+box-shadow:0 12px 28px rgba(0,0,0,.10);
+}
+
+.contact-card h3{
+font-family:'Press Start 2P',cursive;
+font-size:14px;
+line-height:1.6;
+margin:0 0 12px;
+color:#111;
+}
+
+.contact-card p,
+.contact-card a{
+font-size:14px;
+line-height:1.9;
+color:#374151;
 text-decoration:none;
-border-radius:10px;
+font-weight:700;
 }
 
 /* FOOTER */
-
 footer{
-background:#e52521;
-padding:25px;
-font-size:9px;
-margin-top:40px;
-border-top:6px solid #b81412;
+padding:26px 20px 40px;
+text-align:center;
+font-size:13px;
+line-height:2;
+color:#111;
 }
 
+/* RESPONSIVE */
+@media (max-width:1024px){
+.hero-card,
+.quote-wrap,
+.services-grid,
+.trust-grid,
+.gallery-grid,
+.contact-grid{
+grid-template-columns:1fr 1fr;
+}
+
+.services-grid .service-card:last-child{
+grid-column:1 / -1;
+}
+}
+
+@media (max-width:768px){
+.header-inner,
+.logo-wrap{
+flex-direction:column;
+text-align:center;
+}
+
+.brand-text{
+text-align:center;
+}
+
+.hero-card,
+.quote-wrap,
+.services-grid,
+.trust-grid,
+.gallery-grid,
+.contact-grid,
+.form-grid{
+grid-template-columns:1fr;
+}
+
+.hero{
+padding-top:40px;
+}
+
+.hero-card{
+padding:24px;
+}
+
+.hero h2{
+font-size:24px;
+}
+
+.section-title{
+font-size:20px;
+}
+
+.logo{
+width:95px;
+}
+
+nav{
+gap:14px;
+}
+
+nav a{
+font-size:13px;
+}
+
+.gallery-grid img{
+height:230px;
+}
+}
 </style>
 </head>
-
 <body>
 
 <div class="sky-bg">
@@ -311,252 +637,353 @@ border-top:6px solid #b81412;
 </div>
 
 <header>
+  <div class="header-inner">
+    <div class="logo-wrap">
+      <img src="logo.png" alt="Super Detail Bro logo" class="logo">
+      <div class="brand-text">
+        <h1>SUPER DETAIL BRO</h1>
+        <p class="owner-note">Owned & Operated by a 17 Year Old Entrepreneur</p>
+        <p class="tagline">Level Up Your Standard of Clean</p>
+      </div>
+    </div>
 
-<h1>SUPER DETAIL BRO</h1>
-<p class="owner-note">Owned & Operated by a 17 Year Old Entrepreneur</p>
-
-<nav>
-<a href="#services">Services</a>
-<a href="#estimate">Estimate</a>
-<a href="#gallery">Gallery</a>
-<a href="#booking">Book</a>
-<a href="#contact">Contact</a>
-</nav>
-
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#quote-book">Quote</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
 </header>
 
 <section class="hero">
-<h2>MOBILE AUTO DETAILING</h2>
-<p>We come to you and make your ride shine.</p>
-<button class="mario-btn" onclick="scrollToBooking();playCoin()">BOOK NOW</button>
+  <div class="hero-card container">
+    <div class="hero-copy">
+      <span class="kicker">MOBILE AUTO DETAILING</span>
+      <h2>Professional mobile detailing with a fun brand and serious results.</h2>
+      <p>
+        Super Detail Bro brings premium interior and exterior detailing directly to you.
+        Built with personality, backed by real effort, and designed to leave your vehicle
+        looking fresh, glossy, and fully reset.
+      </p>
+      <div class="hero-actions">
+        <a href="#quote-book" class="btn btn-primary" onclick="playCoin()">GET QUOTE</a>
+        <a href="#gallery" class="btn btn-secondary" onclick="playCoin()">SEE RESULTS</a>
+      </div>
+    </div>
+
+    <div class="hero-panel">
+      <h3>WHY CUSTOMERS BOOK</h3>
+      <div class="hero-list">
+        <div>✔ Mobile service that comes to you</div>
+        <div>✔ Mario-inspired brand with a premium feel</div>
+        <div>✔ Quote before appointment request</div>
+        <div>✔ Interior, exterior, and premium package options</div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section id="services" class="section">
-<h2>SERVICES</h2>
-
-<div class="services">
-
-<div class="card">
-<h3>FULL DETAIL</h3>
-<p>Interior and exterior deep clean.</p>
-</div>
-
-<div class="card">
-<h3>INTERIOR DETAIL</h3>
-<p>Vacuuming, plastics, carpets.</p>
-</div>
-
-<div class="card">
-<h3>EXTERIOR DETAIL</h3>
-<p>Foam wash, wheels, shine.</p>
-</div>
-
-<div class="card">
-<h3>PREMIUM PACKAGE</h3>
-<p>Steam included + heavy pet hair.</p>
-</div>
-
-</div>
+<section class="trust-bar">
+  <div class="container">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <strong>MOBILE SERVICE</strong>
+        <span>We come to your home or service location.</span>
+      </div>
+      <div class="trust-item">
+        <strong>YOUNG OWNER</strong>
+        <span>Locally owned and operated by a 17 year old entrepreneur.</span>
+      </div>
+      <div class="trust-item">
+        <strong>QUOTE FIRST</strong>
+        <span>See your estimated price before submitting an appointment request.</span>
+      </div>
+      <div class="trust-item">
+        <strong>SERVICE AREA</strong>
+        <span>Serving Watsonville and surrounding areas.</span>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section id="estimate" class="section">
+<section id="services">
+  <div class="container">
+    <h2 class="section-title">SERVICE PACKAGES</h2>
+    <p class="section-sub">Clean, clear packages with your Mario theme built in — but still professional for real customers.</p>
 
-<h2>PRICE ESTIMATOR</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>🪙 COIN SHINE EXTERIOR</h3>
+        <p>Complete exterior cleaning including full body hand wash, detailed wheel and tire cleaning, exterior window cleaning and paint shine finish.</p>
+      </div>
 
-<div class="estimator">
+      <div class="service-card">
+        <h3>🍄 MUSHROOM INTERIOR RESET</h3>
+        <p>Deep interior restoration including clean seats, carpets, floor mats, plastics, electronics, door jambs, windows and interior steam cleaning.</p>
+      </div>
 
-<select id="vehicle">
-<option value="140">Small Vehicle ($140)</option>
-<option value="160">Medium Vehicle ($160)</option>
-<option value="175">Large Vehicle ($175)</option>
-</select>
+      <div class="service-card">
+        <h3>⭐ LEVEL UP DETAIL</h3>
+        <p>Full interior and exterior service including seats, carpets, plastics, electronics, door jambs, windows, interior steam cleaning, full body wash, wheel cleaning and exterior glass cleaning.</p>
+      </div>
 
-<select id="service">
-<option value="1">Full Detail</option>
-<option value="0.6">Interior Only</option>
-<option value="0.6">Exterior Only</option>
-</select>
-
-<select id="pet">
-<option value="0">No Pet Hair</option>
-<option value="20">Light Pet Hair (+$20)</option>
-<option value="30">Medium Pet Hair (+$30)</option>
-<option value="40">Heavy Pet Hair (+$40)</option>
-</select>
-
-<label><input type="checkbox" id="decon"> Paint Decontamination (+$40)</label>
-<label><input type="checkbox" id="sio2"> SiO2 Spray Sealant (+$30)</label>
-
-<button class="mario-btn" onclick="estimateReward()">CALCULATE PRICE</button>
-
-<div class="reward" id="rewardBox">
-<div class="reward-coin">$</div>
-<div id="price"></div>
-</div>
-
-</div>
+      <div class="service-card premium">
+        <h3>🌟 SUPER STAR FULL DETAIL</h3>
+        <p>Our most comprehensive service including full interior and exterior restoration, steam cleaning, pet hair removal, detailed wheel cleaning, full body wash and exterior glass cleaning.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section id="gallery" class="section">
+<section id="quote-book">
+  <div class="container">
+    <h2 class="section-title">GET YOUR QUOTE & REQUEST APPOINTMENT</h2>
+    <p class="section-sub">Choose your vehicle and services, calculate your estimate, then submit your request.</p>
 
-<h2>BEFORE & AFTER</h2>
+    <div class="quote-wrap">
+      <form class="quote-box" action="https://formsubmit.co/thesuperdetailbro@gmail.com" method="POST">
+        <h3>BUILD YOUR DETAIL</h3>
+        <p>Calculate your estimated price first. Then complete the request form below.</p>
 
-<div class="slider">
+        <div class="form-grid">
+          <div>
+            <select id="vehicle" name="Vehicle Size" required>
+              <option value="">Choose Vehicle Size</option>
+              <option value="140">Small Vehicle ($140)</option>
+              <option value="160">Medium Vehicle ($160)</option>
+              <option value="175">Large Vehicle ($175)</option>
+            </select>
+          </div>
 
-<button class="slide-btn" onclick="prevSlide()">❮</button>
+          <div>
+            <select id="service" name="Service Multiplier" required>
+              <option value="">Choose Service Type</option>
+              <option value="1">Full Detail</option>
+              <option value="0.6">Interior Only</option>
+              <option value="0.6">Exterior Only</option>
+            </select>
+          </div>
 
-<div class="slides" id="slides">
+          <div>
+            <select id="pet" name="Pet Hair Level" required>
+              <option value="0">No Pet Hair</option>
+              <option value="20">Light Pet Hair (+$20)</option>
+              <option value="30">Medium Pet Hair (+$30)</option>
+              <option value="40">Heavy Pet Hair (+$40)</option>
+            </select>
+          </div>
 
-<img class="slide" src="https://images.unsplash.com/photo-1503376780353-7e6692767b70" />
-<img class="slide" src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d" />
-<img class="slide" src="https://images.unsplash.com/photo-1502877338535-766e1452684a" />
+          <div class="checkbox-group">
+            <label><input type="checkbox" id="decon"> Paint Decontamination (+$40)</label>
+            <label><input type="checkbox" id="sio2"> SiO2 Spray Sealant (+$30)</label>
+          </div>
 
-</div>
+          <div class="full">
+            <button type="button" class="btn btn-secondary" onclick="estimateReward()">CALCULATE PRICE</button>
+          </div>
 
-<button class="slide-btn" style="right:0" onclick="nextSlide()">❯</button>
+          <div class="price-panel full" id="rewardBox">
+            <div class="coin">$</div>
+            <div id="price"></div>
+            <div class="submit-note">Estimated price shown before submitting. Final price may vary based on vehicle condition.</div>
+          </div>
 
-</div>
+          <div class="full">
+            <input type="text" name="Name" placeholder="Name" required>
+          </div>
 
+          <div>
+            <input type="tel" name="Phone" placeholder="Phone Number" required>
+          </div>
+
+          <div>
+            <input type="text" name="Address" placeholder="Service Address" required>
+          </div>
+
+          <div class="full">
+            <select name="Requested Package" required>
+              <option value="">Choose Package Name</option>
+              <option>Coin Shine Exterior</option>
+              <option>Mushroom Interior Reset</option>
+              <option>Level Up Detail</option>
+              <option>Super Star Full Detail</option>
+            </select>
+          </div>
+
+          <div>
+            <input type="date" id="appointmentDate" name="Appointment Date" required>
+          </div>
+
+          <div>
+            <select name="Preferred Time" required>
+              <option value="">Choose Time Slot</option>
+              <option>9:00 AM</option>
+              <option>11:00 AM</option>
+              <option>1:00 PM</option>
+              <option>3:00 PM</option>
+              <option>5:00 PM</option>
+            </select>
+          </div>
+
+          <div class="full">
+            <textarea name="Notes" placeholder="Vehicle, condition, and notes"></textarea>
+          </div>
+
+          <div class="full">
+            <input type="hidden" name="_subject" value="New Super Detail Bro Quote + Appointment Request">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" id="estimatedPriceField" name="Estimated Price">
+            <button type="submit" class="btn btn-primary submit-btn" id="submitAppointmentBtn" disabled onclick="playCoin()">SUBMIT APPOINTMENT REQUEST</button>
+          </div>
+        </div>
+      </form>
+
+      <div class="info-box">
+        <h3>GOOD TO KNOW</h3>
+        <p>Your estimate shows before you submit. Appointment requests are reviewed before being confirmed.</p>
+
+        <div class="info-list">
+          <div class="info-chip">Appointments fill quickly — reserve your spot today.</div>
+          <div class="info-chip">Appointment requests are not confirmed until you receive a reply.</div>
+          <div class="info-chip">Best for mobile clients in Watsonville and nearby areas.</div>
+          <div class="info-chip">Real before/after photos can be added here as soon as you upload them.</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section id="booking" class="section">
+<section id="gallery">
+  <div class="container">
+    <h2 class="section-title">BEFORE & AFTER</h2>
+    <p class="section-sub">Swap these with your real photos when you’re ready.</p>
 
-<h2>MAKE APPOINTMENT</h2>
-
-<form class="booking-form" action="https://formsubmit.co/thesuperdetailbro@gmail.com" method="POST">
-
-<input type="text" name="Name" placeholder="Name" required>
-<input type="tel" name="Phone" placeholder="Phone Number" required>
-<input type="text" name="Address" placeholder="Address">
-
-<select name="Service">
-<option>Choose Service</option>
-<option>Full Detail</option>
-<option>Interior Detail</option>
-<option>Exterior Detail</option>
-</select>
-
-<input type="date" name="Date">
-
-<textarea name="Notes" placeholder="Vehicle & Notes"></textarea>
-
-<input type="hidden" name="_subject" value="New Super Detail Bro Appointment">
-<input type="hidden" name="_captcha" value="false">
-
-<button class="mario-btn" onclick="playCoin()">SUBMIT APPOINTMENT</button>
-
-</form>
-
+    <div class="gallery-grid">
+      <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80" alt="Detailed car">
+      <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=80" alt="Clean vehicle">
+      <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1200&q=80" alt="Shiny car exterior">
+    </div>
+  </div>
 </section>
 
-<section id="contact" class="section">
+<section id="contact">
+  <div class="container">
+    <h2 class="section-title">CONTACT</h2>
+    <p class="section-sub">Quick ways for customers to reach you.</p>
 
-<h2>CONTACT</h2>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>PHONE</h3>
+        <a href="tel:18314020853" onclick="playCoin()">831-402-0853</a>
+      </div>
 
-<a class="contact-btn" href="tel:18314020853" onclick="playCoin()">CALL 831-402-0853</a>
-<a class="contact-btn" href="mailto:thesuperdetailbro@gmail.com" onclick="playCoin()">EMAIL</a>
+      <div class="contact-card">
+        <h3>EMAIL</h3>
+        <a href="mailto:thesuperdetailbro@gmail.com" onclick="playCoin()">thesuperdetailbro@gmail.com</a>
+      </div>
 
+      <div class="contact-card">
+        <h3>SERVICE AREA</h3>
+        <p>Watsonville and surrounding areas</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <footer>
-SUPER DETAIL BRO MOBILE DETAILING<br>
-831-402-0853<br>
-thesuperdetailbro@gmail.com
+  SUPER DETAIL BRO MOBILE DETAILING<br>
+  831-402-0853<br>
+  thesuperdetailbro@gmail.com
 </footer>
 
 <script>
+const coinSound = new Audio("https://www.orangefreesounds.com/wp-content/uploads/2014/08/Mario-coin-sound.mp3");
+coinSound.volume = 0.4;
 
-function scrollToBooking(){
-document.getElementById("booking").scrollIntoView({behavior:"smooth"});
-}
-
-const coinSound=new Audio("https://www.orangefreesounds.com/wp-content/uploads/2014/08/Mario-coin-sound.mp3");
-coinSound.volume=0.4;
-
-let playing=false;
+let playing = false;
 
 function playCoin(){
-if(playing)return;
-playing=true;
-coinSound.currentTime=0;
-coinSound.play();
-coinSound.onended=()=>playing=false;
+  if(playing) return;
+  playing = true;
+  coinSound.currentTime = 0;
+  coinSound.play().catch(()=>{});
+  coinSound.onended = () => playing = false;
 }
 
 function estimateReward(){
+  let vehicle = parseFloat(document.getElementById("vehicle").value);
+  let service = parseFloat(document.getElementById("service").value);
+  let pet = parseFloat(document.getElementById("pet").value);
 
-let vehicle=parseFloat(document.getElementById("vehicle").value);
-let service=parseFloat(document.getElementById("service").value);
-let pet=parseFloat(document.getElementById("pet").value);
+  if(isNaN(vehicle) || isNaN(service) || isNaN(pet)){
+    document.getElementById("price").innerHTML = "Please choose vehicle size, service type, and pet hair level first.";
+    document.getElementById("rewardBox").classList.add("show");
+    return;
+  }
 
-let decon=document.getElementById("decon").checked?40:0;
-let sio2=document.getElementById("sio2").checked?30:0;
+  let decon = document.getElementById("decon").checked ? 40 : 0;
+  let sio2 = document.getElementById("sio2").checked ? 30 : 0;
 
-let subtotal=(vehicle*service)+pet+decon+sio2;
+  let subtotal = (vehicle * service) + pet + decon + sio2;
 
-let random=Math.random();
-let discount=0;
-let message="";
-let rarity="common";
+  let random = Math.random();
+  let discount = 0;
+  let message = "";
+  let rarity = "common";
 
-if(random<0.5){
-discount=5;
-message="COMMON COIN! $5 OFF";
-rarity="common";
-}
-else if(random<0.75){
-discount=10;
-message="UNCOMMON COIN! $10 OFF";
-rarity="uncommon";
-}
-else if(random<0.9){
-discount=15;
-message="RARE COIN! $15 OFF";
-rarity="rare";
-}
-else if(random<0.98){
-discount=20;
-message="EPIC COIN! $20 OFF";
-rarity="epic";
-}
-else{
-discount=40;
-message="LEGENDARY COIN! $40 OFF!";
-rarity="legendary";
-}
+  if(random < 0.50){
+    discount = 5;
+    message = "COMMON COIN! $5 OFF";
+    rarity = "common";
+  }
+  else if(random < 0.75){
+    discount = 10;
+    message = "UNCOMMON COIN! $10 OFF";
+    rarity = "uncommon";
+  }
+  else if(random < 0.90){
+    discount = 15;
+    message = "RARE COIN! $15 OFF";
+    rarity = "rare";
+  }
+  else if(random < 0.98){
+    discount = 20;
+    message = "EPIC COIN! $20 OFF";
+    rarity = "epic";
+  }
+  else{
+    discount = 40;
+    message = "LEGENDARY COIN! $40 OFF!";
+    rarity = "legendary";
+  }
 
-let total=subtotal-discount;
+  let total = subtotal - discount;
+  if(total < 0) total = 0;
 
-document.getElementById("price").innerHTML=
-"Estimated Price: $"+total+"<br><span class='"+rarity+"'>"+message+"</span>";
+  document.getElementById("price").innerHTML =
+    "Estimated Price: $" + total +
+    "<div class='price-message " + rarity + "'>" + message + "</div>";
 
-document.getElementById("rewardBox").classList.add("show");
+  document.getElementById("estimatedPriceField").value = "$" + total + " - " + message;
+  document.getElementById("rewardBox").classList.add("show");
+  document.getElementById("submitAppointmentBtn").disabled = false;
 
-playCoin();
-}
-
-let currentSlide=0;
-
-function showSlide(){
-const slides=document.getElementById("slides");
-const total=document.querySelectorAll(".slide").length;
-
-if(currentSlide>=total)currentSlide=0;
-if(currentSlide<0)currentSlide=total-1;
-
-slides.style.transform="translateX(-"+currentSlide*100+"%)";
+  playCoin();
 }
 
-function nextSlide(){
-currentSlide++;
-showSlide();
-}
+const appointmentDate = document.getElementById("appointmentDate");
+const today = new Date();
+today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
+appointmentDate.min = today.toISOString().split("T")[0];
 
-function prevSlide(){
-currentSlide--;
-showSlide();
-}
-
+["vehicle","service","pet","decon","sio2"].forEach(id => {
+  document.getElementById(id).addEventListener("change", function(){
+    document.getElementById("submitAppointmentBtn").disabled = true;
+    document.getElementById("rewardBox").classList.remove("show");
+    document.getElementById("estimatedPriceField").value = "";
+  });
+});
 </script>
 
 </body>

@@ -19,8 +19,8 @@ scroll-behavior:smooth;
 body{
 margin:0;
 font-family:Arial, sans-serif;
-background:#67a7ff;
-color:#111;
+background:#eef4ff;
+color:#142033;
 overflow-x:hidden;
 }
 
@@ -30,112 +30,115 @@ position:fixed;
 inset:0;
 pointer-events:none;
 z-index:-5;
-background:linear-gradient(to bottom,#67a7ff 0%,#8fc0ff 100%);
+background:linear-gradient(to bottom,#deecff 0%,#f4f8ff 100%);
 }
 
 .cloud{
 position:absolute;
 width:90px;
 height:30px;
-background:#fff;
+background:rgba(255,255,255,.82);
 box-shadow:
-30px 0 #fff,
-60px 0 #fff,
-15px -15px #fff,
-45px -15px #fff,
-75px -15px #fff,
-15px 15px #fff,
-45px 15px #fff,
-75px 15px #fff;
-opacity:.85;
+30px 0 rgba(255,255,255,.82),
+60px 0 rgba(255,255,255,.82),
+15px -15px rgba(255,255,255,.82),
+45px -15px rgba(255,255,255,.82),
+75px -15px rgba(255,255,255,.82),
+15px 15px rgba(255,255,255,.82),
+45px 15px rgba(255,255,255,.82),
+75px 15px rgba(255,255,255,.82);
 }
 
-.cloud1{top:80px;left:8%;}
-.cloud2{top:170px;right:14%;}
-.cloud3{top:420px;left:18%;}
-.cloud4{top:760px;right:10%;}
-.cloud5{top:1150px;left:10%;}
-.cloud6{top:1500px;right:18%;}
+.cloud1{top:90px;left:7%;}
+.cloud2{top:180px;right:11%;}
+.cloud3{top:470px;left:16%;}
+.cloud4{top:820px;right:10%;}
+.cloud5{top:1180px;left:12%;}
+.cloud6{top:1540px;right:18%;}
 
 /* HEADER */
 header{
 position:sticky;
 top:0;
 z-index:1000;
-background:rgba(255,255,255,.92);
-backdrop-filter:blur(8px);
-border-bottom:1px solid rgba(0,0,0,.08);
+background:rgba(255,255,255,.94);
+backdrop-filter:blur(10px);
+border-bottom:1px solid rgba(20,32,51,.08);
 }
 
 .header-inner{
 max-width:1180px;
 margin:auto;
-padding:14px 18px;
+padding:14px 20px;
 display:flex;
-align-items:center;
 justify-content:space-between;
+align-items:center;
 gap:20px;
-flex-wrap:wrap;
 }
 
 .logo-wrap{
 display:flex;
 align-items:center;
 gap:14px;
+min-width:0;
 }
 
 .logo{
-width:115px;
-max-width:100%;
+width:82px;
+height:auto;
 display:block;
+object-fit:contain;
+flex-shrink:0;
 }
 
 .brand-text{
 text-align:left;
+min-width:0;
 }
 
-.brand-text h1{
+.brand-title{
 margin:0;
 font-family:'Press Start 2P',cursive;
-font-size:16px;
-line-height:1.4;
-color:#111;
+font-size:14px;
+line-height:1.5;
+color:#111827;
 }
 
 .owner-note{
-margin:6px 0 0;
-font-size:12px;
-font-weight:700;
-color:#d63a2f;
-}
-
-.tagline{
 margin:5px 0 0;
 font-size:12px;
 font-weight:700;
-color:#1d4ed8;
+color:#c43b30;
+}
+
+.tagline{
+margin:4px 0 0;
+font-size:12px;
+font-weight:700;
+color:#1f57d6;
 }
 
 nav{
 display:flex;
-gap:18px;
+gap:20px;
 flex-wrap:wrap;
-align-items:center;
 justify-content:center;
+align-items:center;
 }
 
 nav a{
 text-decoration:none;
-color:#111;
+color:#111827;
 font-weight:700;
 font-size:14px;
+transition:color .2s ease;
 }
 
 nav a:hover{
-color:#d63a2f;
+color:#c43b30;
 }
 
-/* GENERAL */
+/* LAYOUT */
 .container{
 max-width:1180px;
 margin:auto;
@@ -148,11 +151,11 @@ padding:72px 0;
 
 .section-title{
 font-family:'Press Start 2P',cursive;
-font-size:26px;
+font-size:25px;
 line-height:1.5;
 margin:0 0 14px;
 text-align:center;
-color:#111;
+color:#111827;
 }
 
 .section-sub{
@@ -161,7 +164,7 @@ margin:0 auto 34px;
 text-align:center;
 font-size:15px;
 line-height:1.8;
-color:#1f2937;
+color:#435066;
 }
 
 /* BUTTONS */
@@ -174,41 +177,54 @@ padding:16px 24px;
 border-radius:14px;
 font-weight:800;
 font-size:14px;
-transition:.2s ease;
+transition:all .25s ease;
+position:relative;
 }
 
 .btn-primary{
-background:#e53935;
+background:#d64034;
 color:white;
-box-shadow:0 8px 18px rgba(229,57,53,.28);
-}
-
-.btn-primary:hover{
-transform:translateY(-2px);
+box-shadow:0 8px 18px rgba(0,0,0,.15);
 }
 
 .btn-secondary{
 background:#ffcc00;
-color:#111;
-box-shadow:0 8px 18px rgba(255,204,0,.28);
+color:#111827;
+box-shadow:0 8px 18px rgba(0,0,0,.15);
 }
 
-.btn-secondary:hover{
+.btn:hover{
+transform:translateY(-5px);
+box-shadow:
+0 14px 30px rgba(214,64,52,.32),
+0 0 22px rgba(214,64,52,.38);
+}
+
+.btn:active{
 transform:translateY(-2px);
+box-shadow:
+0 8px 18px rgba(214,64,52,.28);
+}
+
+.btn:disabled{
+opacity:.55;
+cursor:not-allowed;
+transform:none;
+box-shadow:0 8px 18px rgba(0,0,0,.12);
 }
 
 /* HERO */
 .hero{
-padding:70px 0 54px;
+padding:64px 0 48px;
 }
 
 .hero-card{
 max-width:1180px;
 margin:auto;
-background:rgba(255,255,255,.92);
-border-radius:28px;
+background:rgba(255,255,255,.94);
+border-radius:30px;
 padding:38px;
-box-shadow:0 18px 50px rgba(0,0,0,.12);
+box-shadow:0 18px 50px rgba(0,0,0,.10);
 display:grid;
 grid-template-columns:1.15fr .85fr;
 gap:28px;
@@ -222,7 +238,7 @@ text-align:left;
 .kicker{
 display:inline-block;
 background:#ffcc00;
-color:#111;
+color:#111827;
 padding:10px 14px;
 border-radius:999px;
 font-weight:800;
@@ -235,13 +251,13 @@ font-family:'Press Start 2P',cursive;
 font-size:34px;
 line-height:1.45;
 margin:0 0 18px;
-color:#111;
+color:#111827;
 }
 
 .hero p{
 font-size:16px;
 line-height:1.9;
-color:#1f2937;
+color:#435066;
 margin:0 0 24px;
 max-width:650px;
 }
@@ -253,13 +269,12 @@ flex-wrap:wrap;
 }
 
 .hero-panel{
-background:linear-gradient(145deg,#e53935 0%,#ffcc00 100%);
+background:linear-gradient(145deg,#d64034 0%,#ffbe0b 100%);
 border-radius:24px;
-padding:22px;
+padding:24px;
 color:white;
 text-align:left;
-min-height:100%;
-box-shadow:0 16px 34px rgba(0,0,0,.15);
+box-shadow:0 16px 34px rgba(0,0,0,.14);
 }
 
 .hero-panel h3{
@@ -277,8 +292,8 @@ font-weight:700;
 line-height:1.7;
 }
 
-/* TRUST BAR */
-.trust-bar{
+/* TRUST STRIP */
+.trust-strip{
 padding-top:0;
 }
 
@@ -289,7 +304,7 @@ gap:18px;
 }
 
 .trust-item{
-background:rgba(255,255,255,.92);
+background:rgba(255,255,255,.94);
 border-radius:20px;
 padding:22px 18px;
 box-shadow:0 10px 30px rgba(0,0,0,.08);
@@ -301,13 +316,13 @@ font-family:'Press Start 2P',cursive;
 font-size:12px;
 line-height:1.6;
 margin-bottom:10px;
-color:#111;
+color:#111827;
 }
 
 .trust-item span{
 font-size:14px;
 line-height:1.8;
-color:#374151;
+color:#435066;
 }
 
 /* SERVICES */
@@ -318,16 +333,24 @@ gap:22px;
 }
 
 .service-card{
-background:rgba(255,255,255,.94);
+background:rgba(255,255,255,.95);
 border-radius:22px;
 padding:28px 22px;
-box-shadow:0 14px 34px rgba(0,0,0,.10);
+box-shadow:0 14px 34px rgba(0,0,0,.09);
 text-align:left;
 border-top:8px solid #ffcc00;
+transition:all .25s ease;
 }
 
 .service-card.premium{
-border-top-color:#e53935;
+border-top-color:#d64034;
+}
+
+.service-card:hover{
+transform:translateY(-6px);
+box-shadow:
+0 20px 40px rgba(0,0,0,.14),
+0 0 18px rgba(214,64,52,.18);
 }
 
 .service-card h3{
@@ -335,14 +358,14 @@ font-family:'Press Start 2P',cursive;
 font-size:15px;
 line-height:1.6;
 margin:0 0 14px;
-color:#111;
+color:#111827;
 }
 
 .service-card p{
 font-size:14px;
 line-height:1.9;
 margin:0;
-color:#374151;
+color:#435066;
 }
 
 /* QUOTE + BOOK */
@@ -355,10 +378,10 @@ align-items:start;
 
 .quote-box,
 .info-box{
-background:rgba(255,255,255,.94);
+background:rgba(255,255,255,.95);
 border-radius:24px;
 padding:28px;
-box-shadow:0 14px 34px rgba(0,0,0,.10);
+box-shadow:0 14px 34px rgba(0,0,0,.09);
 }
 
 .quote-box h3,
@@ -367,7 +390,7 @@ font-family:'Press Start 2P',cursive;
 font-size:17px;
 line-height:1.6;
 margin:0 0 16px;
-color:#111;
+color:#111827;
 text-align:left;
 }
 
@@ -376,7 +399,7 @@ text-align:left;
 text-align:left;
 font-size:14px;
 line-height:1.9;
-color:#374151;
+color:#435066;
 margin:0 0 18px;
 }
 
@@ -396,9 +419,10 @@ grid-column:1 / -1;
 width:100%;
 padding:14px;
 border-radius:14px;
-border:1px solid #d1d5db;
+border:1px solid #d6dbe5;
 font-size:14px;
 background:white;
+color:#111827;
 }
 
 .checkbox-group{
@@ -406,7 +430,7 @@ display:grid;
 gap:10px;
 text-align:left;
 font-size:14px;
-color:#111;
+color:#111827;
 }
 
 .checkbox-group label{
@@ -462,7 +486,7 @@ font-size:14px;
 line-height:1.7;
 }
 
-.common{color:#fff;}
+.common{color:#ffffff;}
 .uncommon{color:#5df27c;}
 .rare{color:#ff8686;}
 .epic{color:#cd8bff;}
@@ -476,12 +500,6 @@ color:#6b7280;
 text-align:left;
 }
 
-.submit-btn:disabled{
-opacity:.5;
-cursor:not-allowed;
-transform:none;
-}
-
 .info-list{
 display:grid;
 gap:14px;
@@ -489,13 +507,13 @@ margin-top:14px;
 }
 
 .info-chip{
-background:#f3f4f6;
+background:#f4f6fa;
 border-radius:14px;
 padding:14px;
 font-size:14px;
 font-weight:700;
 line-height:1.7;
-color:#111;
+color:#111827;
 }
 
 /* GALLERY */
@@ -522,7 +540,7 @@ gap:18px;
 }
 
 .contact-card{
-background:rgba(255,255,255,.94);
+background:rgba(255,255,255,.95);
 border-radius:20px;
 padding:24px;
 box-shadow:0 12px 28px rgba(0,0,0,.10);
@@ -533,14 +551,14 @@ font-family:'Press Start 2P',cursive;
 font-size:14px;
 line-height:1.6;
 margin:0 0 12px;
-color:#111;
+color:#111827;
 }
 
 .contact-card p,
 .contact-card a{
 font-size:14px;
 line-height:1.9;
-color:#374151;
+color:#435066;
 text-decoration:none;
 font-weight:700;
 }
@@ -551,7 +569,7 @@ padding:26px 20px 40px;
 text-align:center;
 font-size:13px;
 line-height:2;
-color:#111;
+color:#111827;
 }
 
 /* RESPONSIVE */
@@ -571,23 +589,29 @@ grid-column:1 / -1;
 }
 
 @media (max-width:768px){
-.header-inner,
-.logo-wrap{
+.header-inner{
 flex-direction:column;
-text-align:center;
+align-items:flex-start;
 }
 
-.brand-text{
-text-align:center;
+.logo-wrap{
+align-items:flex-start;
 }
 
 .hero-card,
 .quote-wrap,
-.services-grid,
+services-grid,
 .trust-grid,
 .gallery-grid,
 .contact-grid,
 .form-grid{
+grid-template-columns:1fr;
+}
+
+.services-grid,
+.trust-grid,
+.gallery-grid,
+.contact-grid{
 grid-template-columns:1fr;
 }
 
@@ -608,7 +632,7 @@ font-size:20px;
 }
 
 .logo{
-width:95px;
+width:72px;
 }
 
 nav{
@@ -628,12 +652,12 @@ height:230px;
 <body>
 
 <div class="sky-bg">
-<div class="cloud cloud1"></div>
-<div class="cloud cloud2"></div>
-<div class="cloud cloud3"></div>
-<div class="cloud cloud4"></div>
-<div class="cloud cloud5"></div>
-<div class="cloud cloud6"></div>
+  <div class="cloud cloud1"></div>
+  <div class="cloud cloud2"></div>
+  <div class="cloud cloud3"></div>
+  <div class="cloud cloud4"></div>
+  <div class="cloud cloud5"></div>
+  <div class="cloud cloud6"></div>
 </div>
 
 <header>
@@ -641,7 +665,7 @@ height:230px;
     <div class="logo-wrap">
       <img src="logo.png" alt="Super Detail Bro logo" class="logo">
       <div class="brand-text">
-        <h1>SUPER DETAIL BRO</h1>
+        <h1 class="brand-title">SUPER DETAIL BRO</h1>
         <p class="owner-note">Owned & Operated by a 17 Year Old Entrepreneur</p>
         <p class="tagline">Level Up Your Standard of Clean</p>
       </div>
@@ -676,15 +700,15 @@ height:230px;
       <h3>WHY CUSTOMERS BOOK</h3>
       <div class="hero-list">
         <div>✔ Mobile service that comes to you</div>
-        <div>✔ Mario-inspired brand with a premium feel</div>
         <div>✔ Quote before appointment request</div>
         <div>✔ Interior, exterior, and premium package options</div>
+        <div>✔ Young local owner building a real brand</div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="trust-bar">
+<section class="trust-strip">
   <div class="container">
     <div class="trust-grid">
       <div class="trust-item">
@@ -710,7 +734,7 @@ height:230px;
 <section id="services">
   <div class="container">
     <h2 class="section-title">SERVICE PACKAGES</h2>
-    <p class="section-sub">Clean, clear packages with your Mario theme built in — but still professional for real customers.</p>
+    <p class="section-sub">Clean, clear packages with a subtle Mario flavor and a professional finish.</p>
 
     <div class="services-grid">
       <div class="service-card">
@@ -847,7 +871,7 @@ height:230px;
           <div class="info-chip">Appointments fill quickly — reserve your spot today.</div>
           <div class="info-chip">Appointment requests are not confirmed until you receive a reply.</div>
           <div class="info-chip">Best for mobile clients in Watsonville and nearby areas.</div>
-          <div class="info-chip">Real before/after photos can be added here as soon as you upload them.</div>
+          <div class="info-chip">Replace gallery photos with your real before/after shots anytime.</div>
         </div>
       </div>
     </div>
